@@ -17,7 +17,7 @@
             <input type="radio" name="horizontal" id="h" onclick="ChangeAlignment('h')" />
             <label id="label2" for="vertical">Vertical</label>
             <input type="radio" name="vertical" id="v" onclick="ChangeAlignment('v')" />
-            <button id="Autoplacement" onclick="AutoPlacement()">Auto Placement</button>
+            <button onclick="AutoPlacement(false)">Auto Placement</button>
             <button id="BeginGame" onclick="BeginGame()">Begin Game</button>
             <div >
             <h2>Dein Feld</h2>
@@ -39,4 +39,5 @@
     <script src="/JavaScript/table.js"></script>
     <script onload='ChangeAlignment("h")' src="/JavaScript/markings.js"></script>
     <script src="/JavaScript/autoenemie.js"></script>
+    <script src="/JavaScript/Bot.js"></script>
 </x-app-layout>
