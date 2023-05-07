@@ -5,6 +5,7 @@
     <div class="ShipBox" >
         <div >
             <h2>Dein Feld</h2>
+            <button onclick="AutoShoot(true)">Auto Shoot</button>
             <table id="table1">
             </table>
         </div>
