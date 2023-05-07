@@ -83,10 +83,12 @@ function ShootAtEnemie(place) {
     if (marked = true) {
       document.getElementById(`2${place}`).style.backgroundColor = "#cc6600";
       clicked.push(place)
+      PlayerChange();
     }
     else {
       document.getElementById(`2${place}`).style.backgroundColor = "orange";// save all marked places and go through them in remove shotindicator
       clicked.push(place);
+      PlayerChange();
     }
   }
 }
