@@ -1,3 +1,14 @@
+function AutoShoot() {
+    place = RandomizePlace(12)
+    answer = ShootAtEnemie(place)
+    while (answer === "error") {
+        place = RandomizePlace(12)
+        answer = "";
+        ShootAtEnemie(place)
+    }
+    PlayerChange();
+}
+
 function AutoPlacement() {
     RandomGenerated = true;
     var x;
@@ -76,3 +87,4 @@ function RandomizeAlignment() {
         ChangeAlignment("v");
     }
 }
+
