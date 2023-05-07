@@ -6,7 +6,6 @@ function AutoShoot() {
         answer = "";
         ShootAtEnemie(place)
     }
-    PlayerChange();
 }
 
 function AutoPlacement() {
