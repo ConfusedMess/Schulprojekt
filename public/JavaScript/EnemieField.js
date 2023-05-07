@@ -34,6 +34,7 @@ function BeginGame() {
     document.getElementById("BeginGame").style.visibility = "hidden";
     document.getElementById("label2").style.visibility = "hidden";
     document.getElementById("label1").style.visibility = "hidden";
+    Initalise();
   }
   else {
     alert("not all ships assigned");

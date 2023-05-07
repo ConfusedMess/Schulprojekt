@@ -2,14 +2,13 @@
 function PlayerChange() { // hier wird der spieler geändert
   if (1 === CurrentPlayer) {
     CurrentPlayer = 2;
+    if (isVsBot){TestForShip(BotMove())}  // Wenn vs Bot gespielt wird rufe Bot auf
   }
   else {
     CurrentPlayer = 1;
   }
 }
-function BotMove() { // hier soll der bot hinkommen
 
-}
 function TestForShip(place) { // hier wird geschuat ob das attackierte feld ein schiff besitz und falls ja wird die nummer der felder mit aktiven schiffen reduziert
   if (NotMarked(place)) {
     document.getElementById(place).style.backgroundColor = "red";
@@ -18,7 +17,7 @@ function TestForShip(place) { // hier wird geschuat ob das attackierte feld ein 
     document.getElementById(place).style.backgroundColor = "yellow";
     HitCounter++;
     if (HitCounter === ShipfieldsNumber) {
-      alert("Spielende");// muss erweitert werden
+      alert("Verloren! Alle deine Schiffe wurden zerstört");// muss erweitert werden
     }
   }
 }
@@ -28,6 +27,7 @@ function ChangeAlignment(current) { // für die radio buttons
   alignment = current;
   document.getElementById(current).checked = true;
 }
+
 function SelectedButton() { // hier wird ein button auf weiß zurückgesetzt wenn er nicht mehr aktiv ist (muss in zukunft verbessert werden)
   switch (Buttonpressed) {
     case 0:
@@ -46,8 +46,6 @@ function SelectedButton() { // hier wird ein button auf weiß zurückgesetzt wen
   }
 }
 
-
-
 function PlaceTinyShip() {
   if (Buttonpressed != 1 && Buttonpressed < 5) {
     document.getElementById("TinyShipButton").style.backgroundColor = "grey";
@@ -60,8 +58,8 @@ function PlaceTinyShip() {
   }
   //else if (Buttonpressed === 1)
 }
-function PlaceSmallShip() //
-{
+
+function PlaceSmallShip() {
   if (Buttonpressed != 2 && Buttonpressed < 5) {
     document.getElementById("SmallShipButton").style.backgroundColor = "grey";
     SelectedButton();
@@ -73,6 +71,7 @@ function PlaceSmallShip() //
   }
   //else if (Buttonpressed === 1)
 }
+
 function PlaceMediumShip() {
   if (Buttonpressed != 3 && Buttonpressed < 5) {
     document.getElementById("MediumShipButton").style.backgroundColor = "grey";
@@ -84,6 +83,7 @@ function PlaceMediumShip() {
     Buttonpressed = 0;
   }
 }
+
 function PlaceBigShip() {
   if (Buttonpressed != 4 && Buttonpressed < 5) {
     document.getElementById("BigShipButton").style.backgroundColor = "grey";

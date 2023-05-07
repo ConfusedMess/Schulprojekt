@@ -21,4 +21,5 @@
     <script src="/JavaScript/auto.js"></script>
     <script src="/JavaScript/table.js"></script>
     <script src="/JavaScript/markings.js"></script>
+    <script src="/JavaScript/Bot.js"></script>
 </x-app-layout>
