@@ -15,8 +15,8 @@ function TestForShip(place) { // hier wird geschuat ob das attackierte feld ein 
   }
   else {
     document.getElementById(place).style.backgroundColor = "yellow";
-    HitCounter++;
-    if (HitCounter === ShipfieldsNumber) {
+    ShipfieldsNumber--;
+    if (ShipfieldsNumber === 0) {
       alert("Verloren! Alle deine Schiffe wurden zerstört");// muss erweitert werden
     }
   }

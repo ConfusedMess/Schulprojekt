@@ -1,17 +1,18 @@
 function NotMarked(place) { // hier wird getestet ob ein feld belegt ist false = belegt  true = nicht belegt
   let marked = true;
-  let specialcounter;//so it does not interfere with the oother counters
+  let specialcounter;//so it does not interfere with the other counters
   let specialcounter2;
   for (specialcounter = 1; specialcounter < 5; specialcounter++) {
     if (TinyShips[`ship${specialcounter}`] === place) {
       marked = false;
-      console.log("test");
+      console.log("Tiny ship getroffen");
     }
   }
   for (specialcounter = 1; specialcounter < 4; specialcounter++) {
     for (specialcounter2 = 0; specialcounter2 < SmallShips[`ship${specialcounter}`].length; specialcounter2++) {
       if (SmallShips[`ship${specialcounter}`][specialcounter2] === place) {
         marked = false;
+        console.log("Small ship getroffen");
       }
     }
   }
@@ -19,16 +20,19 @@ function NotMarked(place) { // hier wird getestet ob ein feld belegt ist false =
     for (specialcounter2 = 0; specialcounter2 < MediumShips[`ship${specialcounter}`].length; specialcounter2++) {
       if (MediumShips[`ship${specialcounter}`][specialcounter2] === place) {
         marked = false;
+        console.log("Medium ship getroffen");
       }
     }
   }
   for (specialcounter2 = 0; specialcounter2 < BigShips[`ship1`].length; specialcounter2++) {
     if (BigShips[`ship1`][specialcounter2] === place) {
       marked = false;
+      console.log("Big ship getroffen");
     }
   }
   return marked;
 }
+
 function OneFieldDistance(place) {  //Schut ob feld in 1 feld umkreis belegt true = umliegende felder frei false= min 1 umliegenes feld belegt
   let IntNumber;
   if (place.length > 2) { // standard slice also zb. place=B6 in GridChar=B  Gridnumber=6 umwandeln

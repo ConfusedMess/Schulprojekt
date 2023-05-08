@@ -6,6 +6,79 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
+        table {
+    /* css fürs styling*/
+    color: #86b300;
+    background-color: black;
+    border: none;
+    border-collapse: collapse;
+    margin-top: 20px;
+    margin-left: 100px;
+
+    margin-bottom: 20px;
+}
+
+.TableHeader {
+    border-color: greenyellow;
+    border-style: solid;
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    text-align: center;
+}
+
+td {
+    border-color: greenyellow;
+    border-style: outset;
+    padding: 0px;
+    margin: 0px;
+}
+
+.shipbutton {
+    color: #39e600;
+    background-color: black;
+    border: none;
+    padding: 5px;
+    margin: 0px;
+    width: 80px;
+    height: 65px;
+}
+
+.NumberInTable {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    text-align: center;
+}
+
+#SmallShipButton:active {
+    background-color: #009900;
+}
+
+label {
+    color: rgb(238, 115, 15);
+}
+
+.ShipBox {
+    flex: auto;
+    align-items: baseline;
+}
+
+.ShipBox>div {
+    border-radius: 16px;
+    background: linear-gradient(to left, rgb(126, 119, 93), rgb(80, 75, 61), rgb(47, 45, 33));
+    width: 100%;
+    padding: 30px;
+    margin-top: 10px;
+    margin-bottom: 100px;
+}
+
+#TinyShipButton {
+    margin-left: 100px;
+}
+.EnemieTable{
+    visibility: hidden;
+}
         .dropdown {
             display: inline-block;
             position: relative;
