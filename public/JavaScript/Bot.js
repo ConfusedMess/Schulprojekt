@@ -238,9 +238,9 @@ function translateStoA(shot){ //Zwischen String und Array übersetzen String to 
         case 'J':
             return [9,shot1]
         case 'K':
-            return [1,shot10]
+            return [10,shot1]
         case 'L':
-            return [1,shot11]
+            return [11,shot1]
     }
 }
 

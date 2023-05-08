@@ -14,10 +14,10 @@
             <button id="BigShipButton" onclick="PlaceBigShip()">1 Big Ship available</button>
             <label id="label1" for="horizontal">Horizontal</label>
             <!-- labels und radiobuttons um auszuwählen ob schiff horizontal oder vertical platziert wird-->
-            <input type="radio" name="horizontal" id="h" onclick="ChangeAlignment('h')" />
+            <input  type="radio" name="horizontal" id="h" onclick="ChangeAlignment('h')" />
             <label id="label2" for="vertical">Vertical</label>
             <input type="radio" name="vertical" id="v" onclick="ChangeAlignment('v')" />
-            <button onclick="AutoPlacement(false)">Auto Placement</button>
+            <button id="Autoplacement" onclick="AutoPlacement(false)">Auto Placement</button>
             <button id="BeginGame" onclick="BeginGame()">Begin Game</button>
             <div >
             <h2>Dein Feld</h2>
