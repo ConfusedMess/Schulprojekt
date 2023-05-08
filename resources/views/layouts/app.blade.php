@@ -277,7 +277,7 @@
     <script>
         function SiteSetup(){
             SetHeight();
-            BackgroundLoad();
+            BackgroundLoad()
         }
         function SetHeight() {
             let hohe = window.innerHeight;
@@ -319,7 +319,7 @@
     </script>
 </head>
 
-<body onload="BackgroundLoad()"onload="SetHeight()">
+<body onload="SiteSetup()">
     <!-- The flexible grid (content) -->
     <div class="row">
         <div id="side_l"><a href="/dashboard">
