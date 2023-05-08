@@ -8,13 +8,11 @@ function AutoPlacementE() {
         RandomizeAlignment();
         place = RandomizePlace(9);
         answer = TableClickE(place);
-        console.log("bigship"+ answer);
-        while (answer === "error" && OneFieldDistanceE(place) === false) {
+        while (answer === "error" || OneFieldDistanceE(place) === false) {
             RandomizeAlignment();
             place = RandomizePlace(9);
             answer = "";
             answer = TableClickE(place);
-            console.log("endlos?");
         }
         Buttonpressed = 0;
     }
@@ -25,12 +23,13 @@ function AutoPlacementE() {
         RandomizeAlignment();
         place = RandomizePlace(10);
         answer = TableClick(place);
-
-        while (answer === "error" && OneFieldDistanceE(place) === false) {
+        console.log("medship");
+         while (answer === "error" || OneFieldDistanceE(place) === false) {
             RandomizeAlignment();
             place = RandomizePlace(10);
             answer = "";
             answer = TableClickE(place);
+            console.log("medshiploop");
         }
         Buttonpressed = 0;
     } for (x = 1; x <= 3; x++) {
@@ -38,7 +37,7 @@ function AutoPlacementE() {
         RandomizeAlignment();
         place = RandomizePlace(11);
         answer = TableClickE(place);
-        while (answer === "error" && OneFieldDistanceE(place) === false) {
+        while (answer === "error" || OneFieldDistanceE(place) === false) {
             RandomizeAlignment();
             place = RandomizePlace(11);
             answer = "";
@@ -52,7 +51,7 @@ function AutoPlacementE() {
         RandomizeAlignment();
         place = RandomizePlace(12);
         answer = TableClickE(place);
-        while (answer === "error" && OneFieldDistanceE(place) === false) {
+        while (answer === "error" || OneFieldDistanceE(place) === false) {
             RandomizeAlignment();
             place = RandomizePlace(12);
             answer = "";
@@ -182,7 +181,7 @@ function TableClickE(place) { // wenn man ein feld auswählt wird hier die gewä
   
       }
     }
-    else if (Buttonpressed === 3) 
+    else if (Buttonpressed === 3) {
       if (alignment === "h") {//looks if vertical or horizontal is selected
         if (place.length > 2) {
           GridNumber = place.slice(0, 2);
@@ -219,7 +218,9 @@ function TableClickE(place) { // wenn man ein feld auswählt wird hier die gewä
   
   
                 Buttonpressed = 0;
+                console.log("Assigned Medium Ship" +counter2);
                 break;
+                
   
               }
               else if (counter2 === 1) {
@@ -261,9 +262,9 @@ function TableClickE(place) { // wenn man ein feld auswählt wird hier die gewä
               MediumShipsE.Assigned[counter2] = "y";
   
   
-              Buttonpressed = 0;
+              Buttonpressed = 0;console.log("Assigned Medium Ship" +counter2);
               break;
-  
+              
             }
             else if (counter2 === 1) {
               if (RandomGenerated === true) {
@@ -277,7 +278,7 @@ function TableClickE(place) { // wenn man ein feld auswählt wird hier die gewä
         }
       }
     
-    
+    }
      else if (Buttonpressed === 4) {
       if (alignment === "h") {//looks if vertical or horizontal is selected
         if (place.length > 2) {
@@ -313,18 +314,15 @@ function TableClickE(place) { // wenn man ein feld auswählt wird hier die gewä
   
               BigShipsE.Assigned = "y";
               Buttonpressed = 0;
-              console.log("bigship did something");
               break;
   
             }
             else {
               if (RandomGenerated === true) {
-                console.log("biste error?");
                 return "error";
               }
               else {
                 alert("error");
-                console.log("isser hier?");
               }
             }
           }
@@ -355,20 +353,17 @@ function TableClickE(place) { // wenn man ein feld auswählt wird hier die gewä
             BigShipsE[`ship1`][3] = fourthplace;
   
             BigShipsE.Assigned = "y";
-            console.log("bigship did something");
             Buttonpressed = 0;
   
   
           }
           else {
             if (RandomGenerated === true) {
-                console.log("gibste error?");
               return "error";
               
             }
             else {
               alert("error");
-              console.log("iises dat");
             }
           }
         }
@@ -429,7 +424,7 @@ function TableClickE(place) { // wenn man ein feld auswählt wird hier die gewä
                   if (NotMarkedE(IntNumber - 1 + AllChars[counter + 1])) {
                     if (NotMarkedE(IntNumber + 1 + AllChars[counter - 1])) {
                       if (NotMarkedE(IntNumber - 1 + AllChars[counter - 1])) { // wenn jemand einen hübscheren weg kennt dies zu prüfen kann er dies gern umschreiben mir fällt auf die schnelle nix ein
-                        console.log(IntNumber + 1 + GridChar);
+                    
                         return true;
                       }
                     }
@@ -444,7 +439,7 @@ function TableClickE(place) { // wenn man ein feld auswählt wird hier die gewä
   
         }
       }
-    } console.log("false");
+    } 
     return false; // sollte nur dies zurückgeben wenn ein "NotMarked" false zurückgibt
   
   }
