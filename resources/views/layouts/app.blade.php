@@ -130,7 +130,7 @@
         /* Sidebar/left column */
         .side_l {
             flex: 18%;
-            height: 995px;
+            height: 1120px;
             background: linear-gradient(180deg, #212121 52.6%,
                     rgba(33, 33, 33, 0.81) 74.48%,
                     rgba(33, 33, 33, 0.74) 84.36%,
@@ -142,7 +142,6 @@
         /* Main column */
         .main {
             flex: 82%;
-            height: 995px;
             overflow: auto;
             padding: 20px;
             justify-content: flex-start;

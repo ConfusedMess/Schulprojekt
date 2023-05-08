@@ -5,7 +5,6 @@ function NotMarked(place) { // hier wird getestet ob ein feld belegt ist false =
   for (specialcounter = 1; specialcounter < 5; specialcounter++) {
     if (TinyShips[`ship${specialcounter}`] === place) {
       marked = false;
-      console.log("test");
     }
   }
   for (specialcounter = 1; specialcounter < 4; specialcounter++) {
@@ -50,7 +49,6 @@ function OneFieldDistance(place) {  //Schut ob feld in 1 feld umkreis belegt tru
                 if (NotMarked(IntNumber - 1 + AllChars[counter + 1])) {
                   if (NotMarked(IntNumber + 1 + AllChars[counter - 1])) {
                     if (NotMarked(IntNumber - 1 + AllChars[counter - 1])) { // wenn jemand einen hübscheren weg kennt dies zu prüfen kann er dies gern umschreiben mir fällt auf die schnelle nix ein
-                      console.log(IntNumber + 1 + GridChar);
                       return true;
                     }
                   }
@@ -65,7 +63,7 @@ function OneFieldDistance(place) {  //Schut ob feld in 1 feld umkreis belegt tru
 
       }
     }
-  } console.log("false");
+  } 
   return false; // sollte nur dies zurückgeben wenn ein "NotMarked" false zurückgibt
 
 }
@@ -80,8 +78,7 @@ function NotMarkedAdvanced(place) {// testet umligende und angeklicktes feld tru
 function MarkMyShips() {
   let mark;
   for (counter=1;counter<6;counter++)
-  {//SmallShips[`ship${specialcounter}`]
-    console.log(TinyShips.ship1);
+  {//SmallShips[`ship${specialcounter}`]s
    // document.getElementById(mark).style.backgroundColor = "green";
     
   }

@@ -316,7 +316,6 @@ function TableClick(place) { // wenn man ein feld auswählt wird hier die gewäh
             document.getElementById(place).style.backgroundColor = "#336600";
             Buttonpressed = 0;
             break;
-
           }
           else if (counter2 === 1) {
             if (RandomGenerated === true) {

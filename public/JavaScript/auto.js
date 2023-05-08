@@ -8,7 +8,7 @@ function AutoPlacement() {
         RandomizeAlignment();
         place = RandomizePlace(9);
         answer = TableClick(place);
-        while (answer === "error" && OneFieldDistance(place) === false) {
+        while (answer === "error" || OneFieldDistance(place) === false) {
             RandomizeAlignment();
             place = RandomizePlace(9);
             answer = "";
@@ -24,7 +24,7 @@ function AutoPlacement() {
         place = RandomizePlace(10);
         answer = TableClick(place);
 
-        while (answer === "error" && OneFieldDistance(place) === false) {
+        while (answer === "error" || OneFieldDistance(place) === false) {
             RandomizeAlignment();
             place = RandomizePlace(10);
             answer = "";
@@ -36,7 +36,7 @@ function AutoPlacement() {
         RandomizeAlignment();
         place = RandomizePlace(11);
         answer = TableClick(place);
-        while (answer === "error" && OneFieldDistance(place) === false) {
+        while (answer === "error" || OneFieldDistance(place) === false) {
             RandomizeAlignment();
             place = RandomizePlace(11);
             answer = "";
@@ -50,7 +50,7 @@ function AutoPlacement() {
         RandomizeAlignment();
         place = RandomizePlace(12);
         answer = TableClick(place);
-        while (answer === "error" && OneFieldDistance(place) === false) {
+        while (answer === "error" || OneFieldDistance(place) === false) {
             RandomizeAlignment();
             place = RandomizePlace(12);
             answer = "";

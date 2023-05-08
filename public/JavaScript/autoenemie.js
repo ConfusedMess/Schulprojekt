@@ -2,19 +2,16 @@ function AutoPlacementE() {
     RandomGenerated = true;
     var x;
     var answer;
-
     for (x = 1; x <= 1; x++) {
         Buttonpressed = 4;
         RandomizeAlignment();
         place = RandomizePlace(9);
         answer = TableClickE(place);
-        console.log("bigship"+ answer);
-        while (answer === "error" && OneFieldDistanceE(place) === false) {
+        while (answer === "error" ||  OneFieldDistanceE(place) === false) {
             RandomizeAlignment();
             place = RandomizePlace(9);
             answer = "";
             answer = TableClickE(place);
-            console.log("endlos?");
         }
         Buttonpressed = 0;
     }
@@ -25,8 +22,8 @@ function AutoPlacementE() {
         RandomizeAlignment();
         place = RandomizePlace(10);
         answer = TableClick(place);
-
-        while (answer === "error" && OneFieldDistanceE(place) === false) {
+        console.log(x+ "erste asnwer");
+        while (answer === "error"  || OneFieldDistanceE(place) === false) {/*&& MediumShipsE.Assigned[0] === "n" && MediumShipsE.Assigned[1] === "n" */
             RandomizeAlignment();
             place = RandomizePlace(10);
             answer = "";
@@ -38,7 +35,7 @@ function AutoPlacementE() {
         RandomizeAlignment();
         place = RandomizePlace(11);
         answer = TableClickE(place);
-        while (answer === "error" && OneFieldDistanceE(place) === false) {
+        while (answer === "error" || OneFieldDistanceE(place) === false) {
             RandomizeAlignment();
             place = RandomizePlace(11);
             answer = "";
@@ -52,11 +49,12 @@ function AutoPlacementE() {
         RandomizeAlignment();
         place = RandomizePlace(12);
         answer = TableClickE(place);
-        while (answer === "error" && OneFieldDistanceE(place) === false) {
+        while (answer === "error" || OneFieldDistanceE(place) === false) {
             RandomizeAlignment();
             place = RandomizePlace(12);
             answer = "";
             answer = TableClickE(place);
+            console.log("endlos4?");
         }
         Buttonpressed = 0;
     }
@@ -182,7 +180,7 @@ function TableClickE(place) { // wenn man ein feld auswählt wird hier die gewä
   
       }
     }
-    else if (Buttonpressed === 3) 
+    else if (Buttonpressed === 3) {
       if (alignment === "h") {//looks if vertical or horizontal is selected
         if (place.length > 2) {
           GridNumber = place.slice(0, 2);
@@ -206,8 +204,10 @@ function TableClickE(place) { // wenn man ein feld auswählt wird hier die gewä
             for (counter2 = 0; counter2 < 2; counter2++)
             // look if a ship is unassigned if yes assign it if not give error
             {
-              if (MediumShipsE.Assigned[counter2] === "n" && NotMarkedAdvancedE(place) && NotMarkedAdvancedE(secondplace)
-                && NotMarkedAdvancedE(thirdplace)) {
+             // console.log(MediumShipsE.Assigned[0]+ 'medship1');
+             // console.log(MediumShipsE.Assigned[1]+ 'medship2');
+              if (MediumShipsE.Assigned[counter2] === "n"){ //&& NotMarkedAdvancedE(place) && NotMarkedAdvancedE(secondplace)
+                //&& NotMarkedAdvancedE(thirdplace)) {
                 //Because arrays begin with 0 but my objects not
                 counter2++;
                 MediumShipsE[`ship${counter2}`][0] = place;
@@ -216,8 +216,7 @@ function TableClickE(place) { // wenn man ein feld auswählt wird hier die gewä
   
                 counter2--;
                 MediumShipsE.Assigned[counter2] = "y";
-  
-  
+                console.log("ishere" + counter2);
                 Buttonpressed = 0;
                 break;
   
@@ -249,8 +248,9 @@ function TableClickE(place) { // wenn man ein feld auswählt wird hier die gewä
           GridNumber++;
           thirdplace = GridNumber + GridChar;
           for (counter2 = 0; counter2 <= 2; counter2++) {
-            if (MediumShipsE.Assigned[counter2] === "n" && NotMarkedAdvancedE(place) && NotMarkedAdvancedE(secondplace)
-              && NotMarkedAdvancedE(thirdplace)) {
+            //console.log(MediumShipsE.Assigned[counter2]+ 'medship1');
+            if (MediumShipsE.Assigned[counter2] === "n"){ //&& NotMarkedAdvancedE(place) && NotMarkedAdvancedE(secondplace)
+             // && NotMarkedAdvancedE(thirdplace)) {
               //Because arrays begin with 0 but my objects not
               counter2++;
               MediumShipsE[`ship${counter2}`][0] = place;
@@ -260,7 +260,7 @@ function TableClickE(place) { // wenn man ein feld auswählt wird hier die gewä
               counter2--;
               MediumShipsE.Assigned[counter2] = "y";
   
-  
+              console.log("ishere" + counter2);
               Buttonpressed = 0;
               break;
   
@@ -277,7 +277,7 @@ function TableClickE(place) { // wenn man ein feld auswählt wird hier die gewä
         }
       }
     
-    
+    }
      else if (Buttonpressed === 4) {
       if (alignment === "h") {//looks if vertical or horizontal is selected
         if (place.length > 2) {
@@ -429,7 +429,6 @@ function TableClickE(place) { // wenn man ein feld auswählt wird hier die gewä
                   if (NotMarkedE(IntNumber - 1 + AllChars[counter + 1])) {
                     if (NotMarkedE(IntNumber + 1 + AllChars[counter - 1])) {
                       if (NotMarkedE(IntNumber - 1 + AllChars[counter - 1])) { // wenn jemand einen hübscheren weg kennt dies zu prüfen kann er dies gern umschreiben mir fällt auf die schnelle nix ein
-                        console.log(IntNumber + 1 + GridChar);
                         return true;
                       }
                     }
@@ -444,7 +443,7 @@ function TableClickE(place) { // wenn man ein feld auswählt wird hier die gewä
   
         }
       }
-    } console.log("false");
+    } 
     return false; // sollte nur dies zurückgeben wenn ein "NotMarked" false zurückgibt
   
   }
