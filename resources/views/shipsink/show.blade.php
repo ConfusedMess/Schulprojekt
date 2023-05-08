@@ -5,6 +5,7 @@
     <div class="ShipBox" >
         <div >
             <h2>Dein Feld</h2>
+            <button onclick="AutoShoot(true)">Auto Shoot</button>
             <table id="table1">
             </table>
         </div>
@@ -21,4 +22,5 @@
     <script src="/JavaScript/auto.js"></script>
     <script src="/JavaScript/table.js"></script>
     <script src="/JavaScript/markings.js"></script>
+    <script src="/JavaScript/Bot.js"></script>
 </x-app-layout>

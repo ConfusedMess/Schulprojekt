@@ -79,12 +79,12 @@ let difficulty = 3; //1 = Easy 2 = Medium 3 = Hard
 
 
 //functions
-function Initalise(){
+function Initalise(){ //Einmal bei Spielbegin ausführen
     InitialiseShips()
     InitialiseBot()
 }
 
-function InitialiseShips(){
+function InitialiseShips(){ // Schiffe des Spielers abspeichern
     //Tiny Ships
     tinyShipsA.ship1=[translateStoA(TinyShips.ship1), false, false]
     tinyShipsA.ship2=[translateStoA(TinyShips.ship2), false, false]
@@ -108,7 +108,7 @@ function InitialiseShips(){
     //console.log('Big Ships:',bigShipsA.ship1);
 }
 
-function InitialiseBot(){
+function InitialiseBot(){  //Nur Hard Bot. Alle Felder werden auf -10 gesetzt außer Felder um ein Schiff
     if(difficulty===3){
         for (let h = 0; h < 12; h++){
             for (let l = 0; l < 12; l++){
@@ -142,7 +142,7 @@ function InitialiseBot(){
     }
 }
 
-function FieldHardPrepare(shot){
+function FieldHardPrepare(shot){ //verändert Feld alles was um ein Schiff liegt wird = 0
     feld[shot[1]][shot[0]] = 0
     if((shot[1]-1)> -1 && (shot[0]-1)> -1){ //links oben
         feld[shot[1]-1][shot[0]-1] = 0
@@ -171,7 +171,7 @@ function FieldHardPrepare(shot){
     }
 }
 
-function BotMove() { // hier soll der bot hinkommen
+function BotMove() { // Aufruf des Bots
   switch (difficulty) {
     case 1:
         return translateAtoS(BotEasy());
@@ -182,7 +182,7 @@ function BotMove() { // hier soll der bot hinkommen
   };
 }
 
-function translateAtoS(shot){
+function translateAtoS(shot){ //Zwischen String und Array übersetzen Array to String
     let shot1 = (parseInt(shot[1])+1)
     let shot0 = shot[0]
     switch (shot0){
@@ -213,38 +213,38 @@ function translateAtoS(shot){
     }
 }
 
-function translateStoA(shot){
+function translateStoA(shot){ //Zwischen String und Array übersetzen String to Array
     let shot1 = parseInt(shot.replace(/[A-L]/g, ""))-1
     let shot0 = shot.replace(/[\d]/g, "")
     switch (shot0){
         case 'A':
-            return [shot1,0]
+            return [0,shot1]
         case 'B':
-            return [shot1,1]
+            return [1,shot1]
         case 'C':
-            return [shot1,2]
+            return [2,shot1]
         case 'D':
-            return [shot1,3]
+            return [3,shot1]
         case 'E':
-            return [shot1,4]
+            return [4,shot1]
         case 'F':
-            return [shot1,5]
+            return [5,shot1]
         case 'G':
-            return [shot1,6]
+            return [6,shot1]
         case 'H':
-            return [shot1,7]
+            return [7,shot1]
         case 'I':
-            return [shot1,8]
+            return [8,shot1]
         case 'J':
-            return [shot1,9]
+            return [9,shot1]
         case 'K':
-            return [shot1,10]
+            return [1,shot10]
         case 'L':
-            return [shot1,11]
+            return [1,shot11]
     }
 }
 
-function Shot(){
+function Shot(){ //Schuss des Bots
     let gibt1 = false //prüfen ob es 1er Felder gibt
     for (let i = 0; i < 12; i++) {
         for (let l = 0; l < 12; l++) {
@@ -256,7 +256,7 @@ function Shot(){
     return Smartshot(gibt1);
 }
 
-function Smartshot(gibt1){
+function Smartshot(gibt1){ //Schuss je nachdem ob es Felder = 1 gibt
     let x = Math.floor(Math.random() * 12);
     let y = Math.floor(Math.random() * 12);
     if(gibt1){
@@ -303,7 +303,7 @@ function ChangeField(shot){ // Deiagonalen deaktivieren
     }
 }
 
-function DestroyShips(shot){
+function DestroyShips(shot){ //Schiffeinzelteile auf zerstört setzten
     let shot0 = parseInt(shot[0])
     let shot1 = parseInt(shot[1])
     //Tiny
@@ -336,7 +336,7 @@ function DestroyShips(shot){
     SetShipsDestroyed()
 }
 
-function SetShipsDestroyed(){
+function SetShipsDestroyed(){ //Gesamte Schiffe auf zerstört setzten (immer der Letzte Eintrag)
     //Tiny
     if (tinyShipsA.ship1[1] && tinyShipsA.ship1[2] === false) {tinyShipsA.ship1[2]= true, FieldShipUpdate(tinyShipsA.ship1[0])}
     if (tinyShipsA.ship2[1] && tinyShipsA.ship2[2] === false) {tinyShipsA.ship2[2]= true, FieldShipUpdate(tinyShipsA.ship2[0])}
@@ -366,7 +366,7 @@ function SetShipsDestroyed(){
         FieldShipUpdate(bigShipsA.ship1[3])}
 }
 
-function FieldShipUpdate(shot){
+function FieldShipUpdate(shot){ //Wenn ein Schiff zerstört wird alle umgebenden Felder = -10 setzen
     if((shot[1]-1)> -1 && (shot[0]-1)> -1){ //links oben
         feld[shot[1]-1][shot[0]-1] = feld[shot[1]-1][shot[0]-1]-10
     }
@@ -393,7 +393,7 @@ function FieldShipUpdate(shot){
     }
 }
 
-function IsShipDestroyed(ship){
+function IsShipDestroyed(ship){ // Abfrage ob Schiff zerstört wurde
     switch (ship){
         //Tiny
         case TinyShips.ship1:
@@ -427,21 +427,22 @@ function IsShipDestroyed(ship){
 
 //Bots
 function BotEasy(){ //kann nur Zufälligen nicht wiederholten Schuss und aktiviert PlayerChange()
-    PlayerChange()
     let shot = Shot()
     feld[shot[1]][shot[0]] = -20
+    PlayerChange()
     return shot
 }
 
-function BotMedium(){       //Gibt einen Schuss Position zurück und aktiviert PlayerChange()
+function BotMedium(){       //Gibt eine Schuss Position zurück und aktiviert PlayerChange()
     let shot = Shot();
-    if(NotMarked(shot)){    //Daneben //Noch translate
+    if(NotMarked(shot)){    //Daneben
         feld[shot[1]][shot[0]] = -20
         PlayerChange();
         return shot
     } else {                //Getroffen
         ChangeField(shot);
         DestroyShips(shot);
+        PlayerChange();
         return shot
     }
 }

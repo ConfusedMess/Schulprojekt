@@ -1,4 +1,6 @@
 function BeginGame() {
+  AutoPlacementE();
+  console.log("Efield"+BigShipsE.ship1)
   counter2 = 0;
   for (counter = 0; counter <= 4; counter++) {
     if (TinyShips.Assigned[counter2] === "n") {
@@ -32,6 +34,7 @@ function BeginGame() {
     document.getElementById("BeginGame").style.visibility = "hidden";
     document.getElementById("label2").style.visibility = "hidden";
     document.getElementById("label1").style.visibility = "hidden";
+    Initalise();
   }
   else {
     alert("not all ships assigned");
@@ -80,10 +83,12 @@ function ShootAtEnemie(place) {
     if (marked = true) {
       document.getElementById(`2${place}`).style.backgroundColor = "#cc6600";
       clicked.push(place)
+      PlayerChange();
     }
     else {
       document.getElementById(`2${place}`).style.backgroundColor = "orange";// save all marked places and go through them in remove shotindicator
       clicked.push(place);
+      PlayerChange();
     }
   }
 }

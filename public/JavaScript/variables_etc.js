@@ -84,3 +84,4 @@ var TinyShips = {
   var RandomGenerated = false; // sagt ob der Randomplacemnt durchläuft
   var table;
   const clicked = [];
+  var isVsBot = true; //Ob gegen Bot oder Spieler gespielt wird Std. gegen Bot
