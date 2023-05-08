@@ -128,9 +128,10 @@
 
         /* Create two unequal columns that sits next to each other */
         /* Sidebar/left column */
-        .side_l {
+        #side_l {
             flex: 18%;
-            height: 995px;
+            height: 1000px;
+            /*Standardvalue will probably be changed by js function SetHeight()*/
             background: linear-gradient(180deg, #212121 52.6%,
                     rgba(33, 33, 33, 0.81) 74.48%,
                     rgba(33, 33, 33, 0.74) 84.36%,
@@ -140,9 +141,10 @@
         }
 
         /* Main column */
-        .main {
+        #main {
             flex: 82%;
-            height: 995px;
+            height: 1000px;
+            /* Standardvalue will probably be changed by js function SetHeight()*/
             overflow: auto;
             padding: 20px;
             justify-content: flex-start;
@@ -273,6 +275,19 @@
         }
     </style>
     <script>
+        function SiteSetup(){
+            SetHeight();
+            BackgroundLoad();
+        }
+        function SetHeight() {
+            let hohe = window.innerHeight;
+            document.getElementById("main").style.height = hohe + "px";
+            document.getElementById("side_l").style.height = hohe + "px";
+            console.log("hab was gemacht");
+        }
+
+
+
         function Dropdown_click_H() {
             var x = document.getElementById("Dropdown_click");
             if (x.className.indexOf("w3-show") == -1) {
@@ -304,10 +319,10 @@
     </script>
 </head>
 
-<body onload="BackgroundLoad()">
+<body onload="BackgroundLoad()"onload="SetHeight()">
     <!-- The flexible grid (content) -->
     <div class="row">
-        <div class="side_l"><a href="/dashboard">
+        <div id="side_l"><a href="/dashboard">
                 <div class="LeftBox">
 
                     Dashboard
@@ -322,7 +337,7 @@
                     </div>
                     <ul class="submenu">
                         <li><a href="/ship/create">Klick here to get to the important site</a></li>
-                        <li><a href="">This does nothin</a></li>
+                        <li onclick="SetHeight()"><a href="">This nothin</a></li>
                         <li><a href="">This does nothin</a></li>
                         <li><a href="">This does nothin</a></li>
                         <li><a href="">This does nothin</a></li>
@@ -375,7 +390,7 @@
 
 
 
-        <div class="main">
+        <div id="main">
             <div class="hiddenbox">
                 <form action="/tutorial/showSearch" method="GET">
                     <input class="search" type="search" name="input" placeholder="&#x1f50d Suchen" />
