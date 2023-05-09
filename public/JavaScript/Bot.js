@@ -41,7 +41,7 @@ let bigShipsA = {
 
 let difficulty = 0; //1 = Easy 2 = Medium 3 = Hard // Auf 0 gesetzt damit keine Schiwerigkeit voreingestellt ist und deer user eine auswählen muss
 function SetDifficulty(){ //Button nutz diese function um difficulty festzulegen 
-    difficulty = document.getElementById("select").value;
+    difficulty = parseInt(document.getElementById("select").value);
     console.log(difficulty);
 }
 function DifficultyAssigend(){ // Macht wie der name sagt schauen ob eine Schwierigkeit gewählt wurde
@@ -158,9 +158,9 @@ function BotMove() { // Aufruf des Bots
     case 1:
         return translateAtoS(BotEasy());
     case 2:
-        return translateAtoS(BotMedium());
+        return translateAtoS(BotMedium())
     case 3: 
-        return translateAtoS(BotMedium()) //Hard Bot braucht keiene eigene Funktion
+        return translateAtoS(BotMedium())    //Hard Bot braucht keiene eigene Funktion
   };
 }
 
@@ -196,8 +196,8 @@ function translateAtoS(shot){ //Zwischen String und Array übersetzen Array to S
 }
 
 function translateStoA(shot){ //Zwischen String und Array übersetzen String to Array
-    let shot1 = parseInt(shot.replace(/[A-L]/g, ""))-1
-    let shot0 = shot.replace(/[\d]/g, "")
+    let shot1 = parseInt(shot.replace(/[A-L]/g, ""))-1  //Nummer y Achse
+    let shot0 = shot.replace(/[\d]/g, "")   //Buchstabe x Achse
     switch (shot0){
         case 'A':
             return [0,shot1]
@@ -411,8 +411,15 @@ function IsShipDestroyed(ship){ // Abfrage ob Schiff zerstört wurde
 function BotEasy(){ //kann nur Zufälligen nicht wiederholten Schuss und aktiviert PlayerChange()
     let shot = Shot()
     feld[shot[1]][shot[0]] = -20
-    PlayerChange()
-    return shot
+    if(NotMarked(translateAtoS(shot))){    //Daneben
+        feld[shot[1]][shot[0]] = -20
+        PlayerChange();
+        return shot
+    } else {                //Getroffen
+        let a = TestForShip(BotMove());
+        feld[shot[1]][shot[0]] = -20
+        return shot
+    }
 }
 
 function BotMedium(){       //Gibt eine Schuss Position zurück und aktiviert PlayerChange()
@@ -424,7 +431,7 @@ function BotMedium(){       //Gibt eine Schuss Position zurück und aktiviert Pl
     } else {                //Getroffen
         ChangeField(shot);
         DestroyShips(shot);
-        TestForShip(BotMove());
+        let a=TestForShip(BotMove());
         return shot
     }
 }

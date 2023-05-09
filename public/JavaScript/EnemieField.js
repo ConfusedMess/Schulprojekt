@@ -98,7 +98,6 @@ function ShootAtEnemie(place) {
     else {
       document.getElementById(`2${place}`).style.backgroundColor = "#07cc00";// save all marked places and go through them in remove shotindicator
       clicked.push(place);
-      PlayerChange();
       ShipfieldsNumberE--;
       if (ShipfieldsNumberE === 0){
         alert('Du hast gewonnen!');
