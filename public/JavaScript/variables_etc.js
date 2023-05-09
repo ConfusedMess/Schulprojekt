@@ -78,8 +78,8 @@ var TinyShips = {
   var secondplace; // hier werden die belegten felder zwischengespeichert
   var thirdplace;
   var fourthplace;
-  var HitCounter; // hier werden die treffer gespeichert
-  var ShipfieldsNumber = 16; // hier wird die anzahl der (gegenerischen) felder gespeichert die noch getroffen werden müssen
+  var ShipfieldsNumber = 20; // hier wird die anzahl der felder (des Speilers) gespeichert die noch getroffen werden müssen. Wenn 0 = verloren
+  let ShipfieldsNumberE = 20; // hier wird die anzahl der felder (des Gegners) gespeichert die noch getroffen werden müssen. Wenn 0 = gewonnen
   var CurrentPlayer = 1; // hier wird der active spieler gespeichert
   var RandomGenerated = false; // sagt ob der Randomplacemnt durchläuft
   var table;
