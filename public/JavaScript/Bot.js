@@ -73,15 +73,31 @@ let bigShipsA = {
 
 
 
-let difficulty = 3; //1 = Easy 2 = Medium 3 = Hard
-
-
+let difficulty = 0; //1 = Easy 2 = Medium 3 = Hard // Auf 0 gesetzt damit keine Schiwerigkeit voreingestellt ist und deer user eine auswählen muss
+function SetDifficulty(){ //Button nutz diese function um difficulty festzulegen 
+    difficulty = document.getElementById("select").value;
+    console.log(difficulty);
+}
+function DifficultyAssigend(){ // Macht wie der name sagt schauen ob eine Schwierigkeit gewählt wurde
+    if(difficulty === 0 ){ 
+        return false;
+    }
+    else{
+        return true;
+    }
+}
 
 
 //functions
 function Initalise(){ //Einmal bei Spielbegin ausführen
-    InitialiseShips()
-    InitialiseBot()
+    if(DifficultyAssigend()){ 
+            InitialiseShips()
+            InitialiseBot()
+    }
+    else{
+                return "error"// gibt  fehler zurück wenn keine schwierigkeit ausgewählt
+    }
+
 }
 
 function InitialiseShips(){ // Schiffe des Spielers abspeichern

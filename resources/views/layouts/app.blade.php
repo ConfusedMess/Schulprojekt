@@ -78,6 +78,7 @@
         /* Style the body */
         body {
             font-family: Arial;
+            font-size: 15px;
             margin: 0;
             /* background-image: url("/image/background_main.svg"); */
             background-color: #212121;

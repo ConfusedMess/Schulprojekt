@@ -1,6 +1,6 @@
 function BeginGame() {
   AutoPlacementE();
-  console.log("Efield"+MediumShipsE.ship1)
+  console.log("Efield" + MediumShipsE.ship1)
   counter2 = 0;
   for (counter = 0; counter <= 4; counter++) {
     if (TinyShips.Assigned[counter2] === "n") {
@@ -22,19 +22,14 @@ function BeginGame() {
   }
 
   if (counter2 === 0) {
-    document.getElementById("table2").style.visibility = "visible";
-    document.getElementById("EtableH").style.visibility = "visible";
-    document.getElementById("TinyShipButton").style.visibility = "hidden";
-    document.getElementById("SmallShipButton").style.visibility = "hidden";
-    document.getElementById("MediumShipButton").style.visibility = "hidden";
-    document.getElementById("BigShipButton").style.visibility = "hidden";
-    document.getElementById("h").style.visibility = "hidden";
-    document.getElementById("v").style.visibility = "hidden";
-    document.getElementById("Autoplacement").style.visibility = "hidden";
-    document.getElementById("BeginGame").style.visibility = "hidden";
-    document.getElementById("label2").style.visibility = "hidden";
-    document.getElementById("label1").style.visibility = "hidden";
-    Initalise();
+    if (Initalise() === "error") { 
+      window.alert("Keine Schwierigkeit Ausgewählt");
+    }
+    else {
+      document.getElementById("ButtonBox").style.visibility = "hidden";
+      document.getElementById("EnemieTable").style.visibility = "visible";
+    }
+
   }
   else {
     alert("not all ships assigned");
