@@ -1,7 +1,8 @@
 function AutoShoot() {
+    auto = true;
     place = RandomizePlace(12)
     answer = ShootAtEnemie(place)
-    while (answer === "error") {
+    while (answer === false) {
         place = RandomizePlace(12)
         answer = "";
         ShootAtEnemie(place)

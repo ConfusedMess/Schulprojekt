@@ -48,6 +48,9 @@ function ShootAtEnemie(place) {
   let specialcounter;//copied from notmarked
   let specialcounter2;
   if (InClickedArray(place) === true) {
+    if(auto){
+      return false;
+    }
     alert("error");
   }
   else {
