@@ -1,7 +1,6 @@
 <x-app-layout>
     <!-- um lokalen server zu starten sodass man die seite sieht schreibt "php artisan serve" in das terminal(ohne semicolons)-->
-    @vite('resources/css/Table.css')
-    @vite('resources/css/other.css')
+
     <div class="ShipBox" >
         <div >
             <h2>Dein Feld</h2>

@@ -42,7 +42,6 @@ let bigShipsA = {
 let difficulty = 0; //1 = Easy 2 = Medium 3 = Hard // Auf 0 gesetzt damit keine Schiwerigkeit voreingestellt ist und deer user eine auswählen muss
 function SetDifficulty(){ //Button nutz diese function um difficulty festzulegen 
     difficulty = parseInt(document.getElementById("select").value);
-    console.log(difficulty);
 }
 function DifficultyAssigend(){ // Macht wie der name sagt schauen ob eine Schwierigkeit gewählt wurde
     if(difficulty === 0 ){ 
@@ -97,6 +96,7 @@ function InitialiseBot(){  //Nur Hard Bot. Alle Felder werden auf -10 gesetzt au
                 feld[h][l]=-10
             }
         }
+
     //Tiny
     FieldHardPrepare(tinyShipsA.ship1[0])
     FieldHardPrepare(tinyShipsA.ship2[0])
@@ -235,8 +235,10 @@ function Shot(){ //Schuss des Bots
             }
           }
       }
+      counterd = 0;
     return Smartshot(gibt1);
 }
+let counterd;
 
 function Smartshot(gibt1){ //Schuss je nachdem ob es Felder = 1 gibt
     let x = Math.floor(Math.random() * 12);
@@ -244,11 +246,23 @@ function Smartshot(gibt1){ //Schuss je nachdem ob es Felder = 1 gibt
     if(gibt1){
         if(feld[y][x] === 1){   //Wenn es 1er Felder gibt schieße nur auf diese 
             return [x,y]
-        } else { return Smartshot(gibt1)}
+        } else { 
+            counterd++;
+            if(counterd === 1000){
+            }
+            else{
+                return Smartshot(gibt1)
+            }
+        }
     } else if (feld[y][x] > -1) {//Wenn es keine 1er Felder gibt           
             return [x,y]
         } else {
-            return Smartshot(gibt1)
+            counterd++;
+            if(counterd === 1000){
+            }
+            else{
+                return Smartshot(gibt1)
+            }
         }
 }
 
@@ -259,16 +273,16 @@ function ChangeField(shot){ // Diagonalen deaktivieren
     
     //Diagonale Sperren
     if((shot[1]-1)> -1 && (shot[0]-1)> -1){ //links oben
-        feld[shot[1]-1][shot[0]-1] = feld[shot[1]-1][shot[0]-1]-10
+        feld[shot[1]-1][shot[0]-1] = -10//feld[shot[1]-1][shot[0]-1]-10
     }
     if((shot[1]-1> -1) && (shot[0]+1)< 12){ //rechts oben
-        feld[shot[1]-1][shot[0]+1] = feld[shot[1]-1][shot[0]+1]-10
+        feld[shot[1]-1][shot[0]+1] = -10//feld[shot[1]-1][shot[0]+1]-10
     }
     if((shot[1]+1< 12) && (shot[0]-1)> -1){ //links unten
-        feld[shot[1]+1][shot[0]-1] = feld[shot[1]+1][shot[0]-1]-10
+        feld[shot[1]+1][shot[0]-1] = -10//feld[shot[1]+1][shot[0]-1]-10
     }
     if((shot[1]+1< 12) && (shot[0]+1)< 12){ //rechts unten
-        feld[shot[1]+1][shot[0]+1] = feld[shot[1]+1][shot[0]+1]-10
+        feld[shot[1]+1][shot[0]+1] = -10//feld[shot[1]+1][shot[0]+1]-10
     }     
     //Horizintale und Vertikale erhöhen
     if((shot[1]-1)> -1){ //oben
@@ -320,7 +334,7 @@ function DestroyShips(shot){ //Schiffeinzelteile auf zerstört setzten
 
 function SetShipsDestroyed(){ //Gesamte Schiffe auf zerstört setzten (immer der Letzte Eintrag)
     //Tiny
-    if (tinyShipsA.ship1[1] && tinyShipsA.ship1[2] === false) {tinyShipsA.ship1[2]= true, FieldShipUpdate(tinyShipsA.ship1[0])}
+    if (tinyShipsA.ship1[1] && tinyShipsA.ship1[2] === false) {tinyShipsA.ship1[2]= true, FieldShipUpdate(tinyShipsA.ship1[0])
     if (tinyShipsA.ship2[1] && tinyShipsA.ship2[2] === false) {tinyShipsA.ship2[2]= true, FieldShipUpdate(tinyShipsA.ship2[0])}
     if (tinyShipsA.ship3[1] && tinyShipsA.ship3[2] === false) {tinyShipsA.ship3[2]= true, FieldShipUpdate(tinyShipsA.ship3[0])}
     if (tinyShipsA.ship4[1] && tinyShipsA.ship4[2] === false) {tinyShipsA.ship4[2]= true, FieldShipUpdate(tinyShipsA.ship4[0])}
@@ -334,44 +348,47 @@ function SetShipsDestroyed(){ //Gesamte Schiffe auf zerstört setzten (immer der
     if (mediumShipsA.ship1[3] && mediumShipsA.ship1[4] && mediumShipsA.ship1[5] && mediumShipsA.ship1[6] === false) {mediumShipsA.ship1[6]= true, 
         FieldShipUpdate(mediumShipsA.ship1[0])
         FieldShipUpdate(mediumShipsA.ship1[1])
-        FieldShipUpdate(mediumShipsA.ship1[2])}
+        FieldShipUpdate(mediumShipsA.ship1[2])        
+    }
     if (mediumShipsA.ship2[3] && mediumShipsA.ship2[4] && mediumShipsA.ship2[5] && mediumShipsA.ship2[6] === false) {mediumShipsA.ship2[6]= true,
         FieldShipUpdate(mediumShipsA.ship2[0])
         FieldShipUpdate(mediumShipsA.ship2[1])
-        FieldShipUpdate(mediumShipsA.ship2[2])}
+        FieldShipUpdate(mediumShipsA.ship2[2])
+    }
 
     //Big
     if (bigShipsA.ship1[4] && bigShipsA.ship1[5] && bigShipsA.ship1[6] && bigShipsA.ship1[7] && bigShipsA.ship1[8] === false) {bigShipsA.ship1[8]= true,
         FieldShipUpdate(bigShipsA.ship1[0])
         FieldShipUpdate(bigShipsA.ship1[1])
         FieldShipUpdate(bigShipsA.ship1[2])
-        FieldShipUpdate(bigShipsA.ship1[3])}
+        FieldShipUpdate(bigShipsA.ship1[3])
+    }
 }
 
 function FieldShipUpdate(shot){ //Wenn ein Schiff zerstört wird alle umgebenden Felder = -10 setzen
-    if((shot[1]-1)> -1 && (shot[0]-1)> -1){ //links oben
-        feld[shot[1]-1][shot[0]-1] = feld[shot[1]-1][shot[0]-1]-10
+    if((shot[1]-1> -1) && (shot[0]-1)> -1){ //links oben
+        feld[shot[1]-1][shot[0]-1] = -10//feld[shot[1]-1][shot[0]-1]-10
     }
     if((shot[1]-1> -1) && (shot[0]+1)< 12){ //rechts oben
-        feld[shot[1]-1][shot[0]+1] = feld[shot[1]-1][shot[0]+1]-10
+        feld[shot[1]-1][shot[0]+1] = -10//feld[shot[1]-1][shot[0]+1]-10
     }
     if((shot[1]+1< 12) && (shot[0]-1)> -1){ //links unten
-        feld[shot[1]+1][shot[0]-1] = feld[shot[1]+1][shot[0]-1]-10
+        feld[shot[1]+1][shot[0]-1] = -10//feld[shot[1]+1][shot[0]-1]-10
     }
     if((shot[1]+1< 12) && (shot[0]+1)< 12){ //rechts unten
-        feld[shot[1]+1][shot[0]+1] = feld[shot[1]+1][shot[0]+1]-10
+        feld[shot[1]+1][shot[0]+1] = -10//feld[shot[1]+1][shot[0]+1]-10
     } 
     if((shot[1]-1)> -1){ //oben
-        feld[shot[1]-1][shot[0]] = feld[shot[1]-1][shot[0]]-10
+        feld[shot[1]-1][shot[0]] = -10//feld[shot[1]-1][shot[0]]-10
     }
     if((shot[1]+1)< 12){ //unten
-        feld[shot[1]+1][shot[0]] = feld[shot[1]+1][shot[0]]-10
+        feld[shot[1]+1][shot[0]] = -10//feld[shot[1]+1][shot[0]]-10
     }
     if((shot[0]+1)< 12){ //rechts
-        feld[shot[1]][shot[0]+1] = feld[shot[1]][shot[0]+1]-10
+        feld[shot[1]][shot[0]+1] = -10//feld[shot[1]][shot[0]+1]-10
     }
     if((shot[0]-1)> -1){ //links
-        feld[shot[1]][shot[0]-1] = feld[shot[1]][shot[0]-1]-10
+        feld[shot[1]][shot[0]-1] = -10//feld[shot[1]][shot[0]-1]-10
     }
 }
 
@@ -416,8 +433,9 @@ function BotEasy(){ //kann nur Zufälligen nicht wiederholten Schuss und aktivie
         PlayerChange();
         return shot
     } else {                //Getroffen
-        let a = TestForShip(BotMove());
+        TestForShip(BotMove());
         feld[shot[1]][shot[0]] = -20
+        console.info(feld)
         return shot
     }
 }
@@ -431,7 +449,18 @@ function BotMedium(){       //Gibt eine Schuss Position zurück und aktiviert Pl
     } else {                //Getroffen
         ChangeField(shot);
         DestroyShips(shot);
-        let a=TestForShip(BotMove());
+        noOpenField=true;
+        for (let h = 0; h < 12; h++){
+            for (let l = 0; l < 12; l++){
+                if(feld[h][l] === 0 || feld[h][l] === 1){
+                    noOpenField=false
+                }
+            }
+        }
+        if(!noOpenField){
+            TestForShip(BotMove());
+        }        
+        console.info(feld)
         return shot
     }
 }
