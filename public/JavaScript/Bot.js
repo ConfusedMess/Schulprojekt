@@ -1,37 +1,3 @@
-/*TODO:
-Difficulty Button
-Bot Anschprechen
-Antwort von Bot darstellen
-*/
-//test
-/*
-var TinyShips = {
-    ship1: "A1",
-    ship2: "B2",
-    ship3: "C3",
-    ship4: "J2",
-    Assigned: ["n", "n", "n", "n"]
-  }
-  
-  var SmallShips = { // hier wird die shiffsposition gespeichert jedes shiff ist ein objekt (also ship1,ship2,ship3) die anzahl der objekt (also schiffe) hängt von der anzahl der platzierbaren schiffe ab.
-    ship1: ["A10", "A11"],// Jedes Objekt ist ein array die länge der arrays hängt von der größe des schiffs ab
-    ship2: ["L11", "L12"],
-    ship3: ["B5", "B6"],
-    Assigned: ["n", "n", "n"] // hier wird gespeichert welche schiffe schon eine position zugewiesen bekommen haben die länge dieses arrays hängt von der anzahl der anderen objekte (schiffe) ab n= unbelegt y =belegt
-  };
-  
-  
-  var MediumShips = { // selbe wie bei SmallShips nur weniger Objekte(weniger schiffe) und dafür längeres array(größere schiffe)
-    ship1: ["D1", "D2", "D3"],
-    ship2: ["F1", "F2", "F3"],
-    Assigned: ["n", "n"]
-  };
-  const BigShips = {
-    ship1: ["H1", "H2", "H3", "H4"],
-    Assigned: "n"
-  };*/
-//let CurrentPlayer = 1; //Nur für Test
-
 //Variablen
 let feld = [
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],//1
@@ -73,15 +39,31 @@ let bigShipsA = {
 
 
 
-let difficulty = 3; //1 = Easy 2 = Medium 3 = Hard
-
-
+let difficulty = 0; //1 = Easy 2 = Medium 3 = Hard // Auf 0 gesetzt damit keine Schiwerigkeit voreingestellt ist und deer user eine auswählen muss
+function SetDifficulty(){ //Button nutz diese function um difficulty festzulegen 
+    difficulty = parseInt(document.getElementById("select").value);
+    console.log(difficulty);
+}
+function DifficultyAssigend(){ // Macht wie der name sagt schauen ob eine Schwierigkeit gewählt wurde
+    if(difficulty === 0 ){ 
+        return false;
+    }
+    else{
+        return true;
+    }
+}
 
 
 //functions
 function Initalise(){ //Einmal bei Spielbegin ausführen
-    InitialiseShips()
-    InitialiseBot()
+    if(DifficultyAssigend()){ 
+            InitialiseShips()
+            InitialiseBot()
+    }
+    else{
+                return "error"// gibt  fehler zurück wenn keine schwierigkeit ausgewählt
+    }
+
 }
 
 function InitialiseShips(){ // Schiffe des Spielers abspeichern
@@ -176,9 +158,9 @@ function BotMove() { // Aufruf des Bots
     case 1:
         return translateAtoS(BotEasy());
     case 2:
-        return translateAtoS(BotMedium());
+        return translateAtoS(BotMedium())
     case 3: 
-        return translateAtoS(BotMedium()) //Hard Bot braucht keiene eigene Funktion
+        return translateAtoS(BotMedium())    //Hard Bot braucht keiene eigene Funktion
   };
 }
 
@@ -214,8 +196,8 @@ function translateAtoS(shot){ //Zwischen String und Array übersetzen Array to S
 }
 
 function translateStoA(shot){ //Zwischen String und Array übersetzen String to Array
-    let shot1 = parseInt(shot.replace(/[A-L]/g, ""))-1
-    let shot0 = shot.replace(/[\d]/g, "")
+    let shot1 = parseInt(shot.replace(/[A-L]/g, ""))-1  //Nummer y Achse
+    let shot0 = shot.replace(/[\d]/g, "")   //Buchstabe x Achse
     switch (shot0){
         case 'A':
             return [0,shot1]
@@ -270,7 +252,7 @@ function Smartshot(gibt1){ //Schuss je nachdem ob es Felder = 1 gibt
         }
 }
 
-function ChangeField(shot){ // Deiagonalen deaktivieren
+function ChangeField(shot){ // Diagonalen deaktivieren
     //Prüfen ob Felder Außerhalb des Spielfeldes Liegen
     //Getroffenes Feld Sperren
     feld[shot[1]][shot[0]]=-20
@@ -429,55 +411,27 @@ function IsShipDestroyed(ship){ // Abfrage ob Schiff zerstört wurde
 function BotEasy(){ //kann nur Zufälligen nicht wiederholten Schuss und aktiviert PlayerChange()
     let shot = Shot()
     feld[shot[1]][shot[0]] = -20
-    PlayerChange()
-    return shot
+    if(NotMarked(translateAtoS(shot))){    //Daneben
+        feld[shot[1]][shot[0]] = -20
+        PlayerChange();
+        return shot
+    } else {                //Getroffen
+        let a = TestForShip(BotMove());
+        feld[shot[1]][shot[0]] = -20
+        return shot
+    }
 }
 
 function BotMedium(){       //Gibt eine Schuss Position zurück und aktiviert PlayerChange()
     let shot = Shot();
-    if(NotMarked(shot)){    //Daneben
+    if(NotMarked(translateAtoS(shot))){    //Daneben
         feld[shot[1]][shot[0]] = -20
         PlayerChange();
         return shot
     } else {                //Getroffen
         ChangeField(shot);
         DestroyShips(shot);
-        PlayerChange();
+        let a=TestForShip(BotMove());
         return shot
     }
 }
-
-//test
-/*
-function NotMarked(shot){
-    return false
-}
-
-function PlayerChange() { // hier wird der spieler geändert
-    if (1 === CurrentPlayer) {
-      CurrentPlayer = 2;
-    }
-    else {
-      CurrentPlayer = 1;
-    }
-  }
-
-for (let b = 0; b < 140; b++) {
-    console.log('Shot NR '+b+': '+ BotMove())
-}
-//console.info(feld)
-let shot = [11,11]
-console.log(BotMove())
-
-//console.log(translateStoA("A1"))
-
-Initalise()
-
-console.log('tiny Ships:',tinyShipsA.ship1,tinyShipsA.ship2,tinyShipsA.ship3,tinyShipsA.ship4);
-console.log('Small Ships:',smallShipsA.ship1,smallShipsA.ship2,smallShipsA.ship3);
-console.log('Medium Ships:',mediumShipsA.ship1,mediumShipsA.ship2);
-console.log('Big Ships:',bigShipsA.ship1);
-
-console.info(feld)
-console.log(translateStoA('L11'))
-*/

@@ -1,3 +1,13 @@
 h2{
     margin-left: 100px;
 }
+button{
+    font-size: 15px;
+}
+select{
+    font-size: 15px;
+}
+option{
+    font-size: 15px;
+    visibility: hidden;
+}

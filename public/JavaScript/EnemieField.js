@@ -1,6 +1,6 @@
 function BeginGame() {
   AutoPlacementE();
-  console.log("Efield"+MediumShipsE.ship1)
+  console.log("Efield" + MediumShipsE.ship1)
   counter2 = 0;
   for (counter = 0; counter <= 4; counter++) {
     if (TinyShips.Assigned[counter2] === "n") {
@@ -22,19 +22,14 @@ function BeginGame() {
   }
 
   if (counter2 === 0) {
-    document.getElementById("table2").style.visibility = "visible";
-    document.getElementById("EtableH").style.visibility = "visible";
-    document.getElementById("TinyShipButton").style.visibility = "hidden";
-    document.getElementById("SmallShipButton").style.visibility = "hidden";
-    document.getElementById("MediumShipButton").style.visibility = "hidden";
-    document.getElementById("BigShipButton").style.visibility = "hidden";
-    document.getElementById("h").style.visibility = "hidden";
-    document.getElementById("v").style.visibility = "hidden";
-    document.getElementById("Autoplacement").style.visibility = "hidden";
-    document.getElementById("BeginGame").style.visibility = "hidden";
-    document.getElementById("label2").style.visibility = "hidden";
-    document.getElementById("label1").style.visibility = "hidden";
-    Initalise();
+    if (Initalise() === "error") { 
+      window.alert("Keine Schwierigkeit Ausgewählt");
+    }
+    else {
+      document.getElementById("ButtonBox").style.visibility = "hidden";
+      document.getElementById("EnemieTable").style.visibility = "visible";
+    }
+
   }
   else {
     alert("not all ships assigned");
@@ -49,46 +44,71 @@ function InClickedArray(place) {
   return free;
 }
 function ShootAtEnemie(place) {
-  let marked = true;
+  let notMarked = true;
   let specialcounter;//copied from notmarked
   let specialcounter2;
   if (InClickedArray(place) === true) {
+    if(auto){
+      return false;
+    }
     alert("error");
   }
   else {
     for (specialcounter = 1; specialcounter < 5; specialcounter++) {
-      if (TinyShipsE[`shipH${specialcounter}`] === place) {
-        TinyShipsE[`shipH${specialcounter}`] = true;
+      if (TinyShipsE[`ship${specialcounter}`] === place) {
+        TinyShipsE[`ship${specialcounter}H`] = true;
+        notMarked = false
+        alert('Schiff zerstört')
       }
     }
     for (specialcounter = 1; specialcounter < 4; specialcounter++) {
       for (specialcounter2 = 0; specialcounter2 < SmallShipsE[`ship${specialcounter}H`].length; specialcounter2++) {
-        if (SmallShipsE[`ship${specialcounter}H`][specialcounter2] === place) {
+        if (SmallShipsE[`ship${specialcounter}`][specialcounter2] === place) {
           SmallShipsE[`ship${specialcounter}H`][specialcounter2] = true;
+          notMarked = false
+          if (SmallShipsE[`ship${specialcounter}H`][0] === true && SmallShipsE[`ship${specialcounter}H`][1] === true){
+            alert('Schiff zerstört')
+          }
         }
       }
     }
     for (specialcounter = 1; specialcounter < 3; specialcounter++) {
       for (specialcounter2 = 0; specialcounter2 < MediumShipsE[`ship${specialcounter}H`].length; specialcounter2++) {
-        if (MediumShipsE[`ship${specialcounter}H`][specialcounter2] === place) {
+        if (MediumShipsE[`ship${specialcounter}`][specialcounter2] === place) {
           MediumShipsE[`ship${specialcounter}H`][specialcounter2] = true;
+          notMarked = false
+          if (MediumShipsE[`ship${specialcounter}H`][0] === true && MediumShipsE[`ship${specialcounter}H`][1] === true && MediumShipsE[`ship${specialcounter}H`][2] === true){
+            alert('Schiff zerstört')
+          }
         }
       }
     }
     for (specialcounter2 = 0; specialcounter2 < BigShipsE[`ship1H`].length; specialcounter2++) {
-      if (BigShipsE[`ship1H`][specialcounter2] === place) {
+      if (BigShipsE[`ship1`][specialcounter2] === place) {
         BigShipsE[`ship1H`][specialcounter2] = true;
+        notMarked = false
+        if (BigShipsE[`ship1H`][0] === true && BigShipsE[`ship1H`][1] === true && BigShipsE[`ship1H`][2] === true && BigShipsE[`ship1H`][3] === true){
+          alert('Schiff zerstört')
+        }
       }
     }
-    if (marked = true) {
-      document.getElementById(`2${place}`).style.backgroundColor = "#cc6600";
+    if (notMarked === true) {
+      document.getElementById(`2${place}`).style.backgroundColor = "#cc0018";
       clicked.push(place)
       PlayerChange();
+      //console.log('Nicht getroffen: '+place)
     }
     else {
-      document.getElementById(`2${place}`).style.backgroundColor = "orange";// save all marked places and go through them in remove shotindicator
+      document.getElementById(`2${place}`).style.backgroundColor = "#07cc00";// save all marked places and go through them in remove shotindicator
       clicked.push(place);
-      PlayerChange();
+      ShipfieldsNumberE--;
+      if (ShipfieldsNumberE === 0){
+        alert('Du hast gewonnen!');
+      }
+      else {
+      //console.log('Getroffen: '+place)
+      //console.log('Noch '+ShipfieldsNumberE+' Schiffsfelder übrig')
+      }
     }
   }
 }
