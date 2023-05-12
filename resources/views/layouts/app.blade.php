@@ -28,8 +28,6 @@
             border-radius: 14px;
             right: 0.1%;
             margin: 10px;
-
-
         }
 
         .dropdown:hover .dropdown-content {
@@ -323,7 +321,7 @@
 <body onload="SiteSetup()">
     <!-- The flexible grid (content) -->
     <div class="row">
-        <div id="side_l"><a href="/dashboard">
+       <!-- <div id="side_l"><a href="/dashboard">
                 <div class="LeftBox">
 
                     Dashboard
@@ -372,7 +370,7 @@
                     </ul>
                 </div>
             </a>
-            <div style="top:97%; position:absolute; color:#C2C7CE; font-size:18px">
+            <div style="top:97%; position:absolute; color:#C2C7CE; font-size:18px">-->
 
                 <!-- Authentication -->
                 <form method="POST" action="{{ route('logout') }}">
@@ -392,12 +390,6 @@
 
 
         <div id="main">
-            <div class="hiddenbox">
-                <form action="/tutorial/showSearch" method="GET">
-                    <input class="search" type="search" name="input" placeholder="&#x1f50d Suchen" />
-                    <input type="hidden" value="{{ csrf_token() }}" />
-                </form>
-            </div>
             {{ $slot }}
         </div>
 

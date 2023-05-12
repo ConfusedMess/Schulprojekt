@@ -1,54 +1,5 @@
-table {
-    /* css fürs styling*/
-    color: #86b300;
-    background-color: black;
-    border: none;
-    border-collapse: collapse;
-    margin-top: 20px;
-    margin-left: 100px;
-
-    margin-bottom: 20px;
-}
-
-.TableHeader {
-    border-color: greenyellow;
-    border-style: solid;
-    width: 40px;
-    height: 40px;
-    font-size: 20px;
-    text-align: center;
-}
-
-td {
-    border-color: greenyellow;
-    border-style: outset;
-    padding: 0px;
-    margin: 0px;
-}
-
-.shipbutton {
-    color: #39e600;
-    background-color: black;
-    border: none;
-    padding: 5px;
-    margin: 0px;
-    width: 80px;
-    height: 65px;
-}
-
-.NumberInTable {
-    width: 40px;
-    height: 40px;
-    font-size: 20px;
-    text-align: center;
-}
-
 #SmallShipButton:active {
     background-color: #009900;
-}
-
-label {
-    color: rgb(238, 115, 15);
 }
 #ButtonBox{
     flex: auto;
@@ -61,20 +12,51 @@ label {
     margin-bottom: 10px;
     visibility: visible;
 }
+label {
+    color: rgb(238, 115, 15);
+}
+#TinyShipButton {
+    margin-left: 100px;
+}
+
+
+table {
+    /* css fürs styling*/
+    color: #86b300;
+    background-color: black;
+    border: none;
+    border-collapse: collapse;
+    margin:auto
+}
+.TableHeader {
+    border-color: greenyellow;
+    border-style: solid;
+    width: 70px;
+    height: 70px;
+    font-size: 20px;
+    text-align: center;
+}
+td {
+    border-color: greenyellow;
+    border-style: outset;
+    padding: 0px;
+    margin: 0px;
+}
+.NumberInTable {
+    width: 70px;
+    height: 70px;
+    font-size: 20px;
+    text-align: center;
+}
 .ShipBox {
     flex: auto;
     align-items: baseline;
     border-radius: 16px;
     background: linear-gradient(to left, rgb(126, 119, 93), rgb(80, 75, 61), rgb(47, 45, 33));
     width: 100%;
-    padding: 30px;
+    padding: 20px;
     margin-top: 10px;
     margin-bottom: 100px;
-}
-
-
-#TinyShipButton {
-    margin-left: 100px;
 }
 #EnemieTable{
     flex: auto;
@@ -86,4 +68,95 @@ label {
     margin-top: 10px;
     margin-bottom: 100px;
     visibility: hidden;
+}
+
+.shipbutton {
+    color: #39e600;
+    background-color: black;
+    border: none;
+    padding: 5px;
+    margin: 0px;
+    width: 70px;
+    height: 70px;
+    font-size: 0px;
+}
+@media screen and (max-width: 1200px) {
+    .shipbutton{
+        width: 60px;
+        height: 60px;
+    }
+    .NumberInTable{
+        width: 60px;
+        height: 60px;
+    }
+    .TableHeader{
+        width: 60px;
+        height: 60px;
+    }
+}
+@media screen and (max-width: 1000px) {
+    .shipbutton{
+        width: 50px;
+        height: 50px;
+    }
+    .NumberInTable{
+        width: 50px;
+        height: 50px;
+    }
+    .TableHeader{
+        width: 50px;
+        height: 50px;
+    }
+}
+@media screen and (max-width: 700px) {
+    .shipbutton{
+        width: 30px;
+        height: 30px;
+    }
+    .ShipBox{
+        padding: 7px;
+    }
+    #main{
+        padding: 10px;
+    }
+    .NumberInTable{
+        width: 30px;
+        height: 30px;
+    }
+    .TableHeader{
+        width: 30px;
+        height: 30px;
+    }
+}
+@media screen and (max-width: 430px) {
+    .shipbutton{
+        width: 25px;
+        height: 25px;
+    }
+    .NumberInTable{
+        width: 25px;
+        height: 25px;
+        font-size: 10px;
+    }
+    .TableHeader{
+        width: 25px;
+        height: 25px;
+        font-size: 10px;
+    }
+}
+@media screen and (max-width: 370px) {
+    .shipbutton{
+        width: 20px;
+        height: 20px;
+    }
+    .NumberInTable{
+        width: 20px;
+        height: 20px;
+        font-size: 10px;
+    }
+    .TableHeader{
+        width: 20px;
+        height: 20px;
+        font-size: 10px;
+    }
 }
