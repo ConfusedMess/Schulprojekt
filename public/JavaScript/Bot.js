@@ -334,7 +334,7 @@ function DestroyShips(shot){ //Schiffeinzelteile auf zerstört setzten
 
 function SetShipsDestroyed(){ //Gesamte Schiffe auf zerstört setzten (immer der Letzte Eintrag)
     //Tiny
-    if (tinyShipsA.ship1[1] && tinyShipsA.ship1[2] === false) {tinyShipsA.ship1[2]= true, FieldShipUpdate(tinyShipsA.ship1[0])
+    if (tinyShipsA.ship1[1] && tinyShipsA.ship1[2] === false) {tinyShipsA.ship1[2]= true, FieldShipUpdate(tinyShipsA.ship1[0])}
     if (tinyShipsA.ship2[1] && tinyShipsA.ship2[2] === false) {tinyShipsA.ship2[2]= true, FieldShipUpdate(tinyShipsA.ship2[0])}
     if (tinyShipsA.ship3[1] && tinyShipsA.ship3[2] === false) {tinyShipsA.ship3[2]= true, FieldShipUpdate(tinyShipsA.ship3[0])}
     if (tinyShipsA.ship4[1] && tinyShipsA.ship4[2] === false) {tinyShipsA.ship4[2]= true, FieldShipUpdate(tinyShipsA.ship4[0])}
@@ -460,7 +460,6 @@ function BotMedium(){       //Gibt eine Schuss Position zurück und aktiviert Pl
         if(!noOpenField){
             TestForShip(BotMove());
         }        
-        console.info(feld)
         return shot
     }
 }
