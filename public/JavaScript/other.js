@@ -2,7 +2,7 @@
 function PlayerChange() { // hier wird der spieler geändert
   if (1 === CurrentPlayer) {
     CurrentPlayer = 2;
-    if (isVsBot){TestForShip(BotMove())}  // Wenn vs Bot gespielt wird rufe Bot auf
+    if (isVsBot) { TestForShip(BotMove()) }  // Wenn vs Bot gespielt wird rufe Bot auf
   }
   else {
     CurrentPlayer = 1;
@@ -33,22 +33,22 @@ function SelectedButton() { // hier wird ein button auf weiß zurückgesetzt wen
     case 0:
       break;
     case 1:
-      document.getElementById("TinyShipButton").style.backgroundColor = "white";
+      document.getElementById("TinyShipButton").style.backgroundColor = "blue";
     case 2:
-      document.getElementById("SmallShipButton").style.backgroundColor = "white";
+      document.getElementById("SmallShipButton").style.backgroundColor = "blue";
       break;
     case 3:
-      document.getElementById("MediumShipButton").style.backgroundColor = "white";
+      document.getElementById("MediumShipButton").style.backgroundColor = "blue";
       break;
     case 4:
-      document.getElementById("BigShipButton").style.backgroundColor = "white";
+      document.getElementById("BigShipButton").style.backgroundColor = "blue";
       break;
   }
 }
 
 function PlaceTinyShip() {
   if (Buttonpressed != 1 && Buttonpressed < 5) {
-    document.getElementById("TinyShipButton").style.backgroundColor = "grey";
+    document.getElementById("TinyShipButton").style.backgroundColor = "darkblue";
     SelectedButton();
     Buttonpressed = 1;
   }
@@ -61,7 +61,7 @@ function PlaceTinyShip() {
 
 function PlaceSmallShip() {
   if (Buttonpressed != 2 && Buttonpressed < 5) {
-    document.getElementById("SmallShipButton").style.backgroundColor = "grey";
+    document.getElementById("SmallShipButton").style.backgroundColor = "darkblue";
     SelectedButton();
     Buttonpressed = 2;
   }
@@ -74,7 +74,7 @@ function PlaceSmallShip() {
 
 function PlaceMediumShip() {
   if (Buttonpressed != 3 && Buttonpressed < 5) {
-    document.getElementById("MediumShipButton").style.backgroundColor = "grey";
+    document.getElementById("MediumShipButton").style.backgroundColor = "darkblue";
     SelectedButton();
     Buttonpressed = 3;
   }
@@ -86,7 +86,7 @@ function PlaceMediumShip() {
 
 function PlaceBigShip() {
   if (Buttonpressed != 4 && Buttonpressed < 5) {
-    document.getElementById("BigShipButton").style.backgroundColor = "grey";
+    document.getElementById("BigShipButton").style.backgroundColor = "darkblue";
     SelectedButton();
     Buttonpressed = 4;
   }
@@ -108,8 +108,23 @@ function TableClick(place) { // wenn man ein feld auswählt wird hier die gewäh
         counter2--
         TinyShips.Assigned[counter2] = "y"
 
-        document.getElementById("TinyShipButton").style.backgroundColor = "white";
-        document.getElementById(place).style.backgroundColor = "#339933";
+        
+        switch (counter2) { // ändert den text auf den buttons
+          case 0:
+            document.getElementById("TinyShipButton").innerText = " 3 Fregatten übrig";
+            break;
+          case 1:
+            document.getElementById("TinyShipButton").innerText = " 2 Fregatten übrig";
+            break;
+          case 2:
+            document.getElementById("TinyShipButton").innerText = " 1 Fregatte übrig";
+            break;
+          case 3:
+            document.getElementById("TinyShipButton").innerText = " keine Fregatte übrig";
+            break;
+        }
+        document.getElementById("TinyShipButton").style.backgroundColor = "blue";// setzt den button zurück
+        document.getElementById(place).style.backgroundColor = "#339933";// markiert das feld
         Buttonpressed = 0;
         break;
       } else if (counter2 === 3) {
@@ -120,7 +135,7 @@ function TableClick(place) { // wenn man ein feld auswählt wird hier die gewäh
           alert("error");
         }
       }
-      
+
 
     }
   }
@@ -154,10 +169,20 @@ function TableClick(place) { // wenn man ein feld auswählt wird hier die gewäh
               counter2--;
               SmallShips.Assigned[counter2] = "y"
 
-
+              switch (counter2) { // ändert den text auf den buttons
+                case 0:
+                  document.getElementById("SmallShipButton").innerText = " 2 Zerstörer übrig";
+                  break;
+                case 1:
+                  document.getElementById("SmallShipButton").innerText = " 1 Zerstörer übrig";
+                  break;
+                case 2:
+                  document.getElementById("SmallShipButton").innerText = " kein Zerstörer übrig";
+                  break;
+              }
               // Mark fields and return button to default state
               document.getElementById(secondplace).style.backgroundColor = "#006600";
-              document.getElementById("SmallShipButton").style.backgroundColor = "white";
+              document.getElementById("SmallShipButton").style.backgroundColor = "blue";
               document.getElementById(place).style.backgroundColor = "#006600";
               Buttonpressed = 0;
               break;
@@ -201,10 +226,20 @@ function TableClick(place) { // wenn man ein feld auswählt wird hier die gewäh
             counter2--;
             SmallShips.Assigned[counter2] = "y"
 
-
+            switch (counter2) { // ändert den text auf den buttons
+              case 0:
+                document.getElementById("SmallShipButton").innerText = " 2 Zerstörer übrig";
+                break;
+              case 1:
+                document.getElementById("SmallShipButton").innerText = " 1 Zerstörer übrig";
+                break;
+              case 2:
+                document.getElementById("SmallShipButton").innerText = " kein Zerstörer übrig";
+                break;
+            }
             // Mark fields and return button to default state
             document.getElementById(secondplace).style.backgroundColor = "#006600";
-            document.getElementById("SmallShipButton").style.backgroundColor = "white";
+            document.getElementById("SmallShipButton").style.backgroundColor = "blue";
             document.getElementById(place).style.backgroundColor = "#006600";
             Buttonpressed = 0;
             break;
@@ -260,11 +295,18 @@ function TableClick(place) { // wenn man ein feld auswählt wird hier die gewäh
               counter2--;
               MediumShips.Assigned[counter2] = "y";
 
-
+              switch (counter2) { // ändert den text auf den buttons
+                case 0:
+                  document.getElementById("MediumShipButton").innerText = " 1 Kreuzer übrig";
+                  break;
+                case 1:
+                  document.getElementById("MediumShipButton").innerText = " kein Kreuzer übrig";
+                  break;
+              }
               // Mark fields and return button to default state
               document.getElementById(thirdplace).style.backgroundColor = "#003300";
               document.getElementById(secondplace).style.backgroundColor = "#003300";
-              document.getElementById("MediumShipButton").style.backgroundColor = "white";
+              document.getElementById("MediumShipButton").style.backgroundColor = "blue";
               document.getElementById(place).style.backgroundColor = "#003300";
               Buttonpressed = 0;
               break;
@@ -308,11 +350,18 @@ function TableClick(place) { // wenn man ein feld auswählt wird hier die gewäh
             counter2--;
             MediumShips.Assigned[counter2] = "y";
 
-
+            switch (counter2) { // ändert den text auf den buttons
+              case 0:
+                document.getElementById("MediumShipButton").innerText = " 1 Kreuzer übrig";
+                break;
+              case 1:
+                document.getElementById("MediumShipButton").innerText = " kein Kreuzer übrig";
+                break;
+            }
             // Mark fields and return button to default state
             document.getElementById(thirdplace).style.backgroundColor = "#336600";
             document.getElementById(secondplace).style.backgroundColor = "#336600";
-            document.getElementById("MediumShipButton").style.backgroundColor = "white";
+            document.getElementById("MediumShipButton").style.backgroundColor = "blue";
             document.getElementById(place).style.backgroundColor = "#336600";
             Buttonpressed = 0;
             break;
@@ -365,11 +414,14 @@ function TableClick(place) { // wenn man ein feld auswählt wird hier die gewäh
             BigShips[`ship1`][3] = fourthplace;
 
             BigShips.Assigned = "y";
+
+ 
+            document.getElementById("BigShipButton").innerText = " kein Schlachtschiff übrig";
             // Mark fields and return button to default state
             document.getElementById(fourthplace).style.backgroundColor = "#333300";
             document.getElementById(thirdplace).style.backgroundColor = "#333300";
             document.getElementById(secondplace).style.backgroundColor = "#333300";
-            document.getElementById("BigShipButton").style.backgroundColor = "white";
+            document.getElementById("BigShipButton").style.backgroundColor = "blue";
             document.getElementById(place).style.backgroundColor = "#333300";
             Buttonpressed = 0;
             break;
@@ -410,12 +462,13 @@ function TableClick(place) { // wenn man ein feld auswählt wird hier die gewäh
           BigShips[`ship1`][2] = thirdplace;
           BigShips[`ship1`][3] = fourthplace;
 
+          document.getElementById("BigShipButton").innerText = " kein Schlachtschiff übrig";
           BigShips.Assigned = "y";
           // Mark fields and return button to default state
           document.getElementById(fourthplace).style.backgroundColor = "#006600";
           document.getElementById(thirdplace).style.backgroundColor = "#006600";
           document.getElementById(secondplace).style.backgroundColor = "#006600";
-          document.getElementById("BigShipButton").style.backgroundColor = "white";
+          document.getElementById("BigShipButton").style.backgroundColor = "blue";
           document.getElementById(place).style.backgroundColor = "#006600";
           Buttonpressed = 0;
 

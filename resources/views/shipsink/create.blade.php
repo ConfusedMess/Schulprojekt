@@ -17,12 +17,26 @@
         <label id="label2" for="vertical">Vertical</label>
         <input type="radio" name="vertical" id="v" onclick="ChangeAlignment('v')" />
         <button id="Autoplacement" onclick="AutoPlacement(false)">Auto Placement</button>
-        <select id="select" size="1" onchange="SetDifficulty()">
+       <!-- <select id="select" size="1" onchange="SetDifficulty()">
             <option  selected hidden>Difficulty</option>
             <option value=1 >Easy</option>
             <option value=2 >Medium</option>
             <option value=3 >Dark Souls</option>
-        </select>
+        </select>-->
+        <div class="dropdown">
+            <button id="dropdown" class="dropdownbtn"> Schwierigkeit</button>
+            <div class="dropdown-content">
+                    <div onclick="SetDifficulty(1)" class="dropdown-options">
+                        Einfach     
+                    </div>
+                    <div onclick="SetDifficulty(2)" class="dropdown-options">
+                        Mittel
+                    </div>
+                    <div onclick="SetDifficulty(3)" class="dropdown-options">
+                        Schwer
+                    </div>
+            </div>
+        </div>
         <button id="BeginGame" onclick="BeginGame()">Begin Game</button>
     </div>
 

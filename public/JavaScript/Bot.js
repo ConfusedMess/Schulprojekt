@@ -40,9 +40,19 @@ let bigShipsA = {
 
 
 let difficulty = 0; //1 = Easy 2 = Medium 3 = Hard // Auf 0 gesetzt damit keine Schiwerigkeit voreingestellt ist und deer user eine auswählen muss
-function SetDifficulty(){ //Button nutz diese function um difficulty festzulegen 
-    difficulty = parseInt(document.getElementById("select").value);
-    console.log(difficulty);
+function SetDifficulty(value){ //Button nutz diese function um difficulty festzulegen 
+    difficulty=value
+    switch(difficulty){
+        case 1:
+            document.getElementById("dropdown").innerText="Einfach";
+            break;
+        case 2:
+            document.getElementById("dropdown").innerText="Mittel";
+            break;
+        case 3:
+            document.getElementById("dropdown").innerText="Schwer";
+            break;
+    }
 }
 function DifficultyAssigend(){ // Macht wie der name sagt schauen ob eine Schwierigkeit gewählt wurde
     if(difficulty === 0 ){ 
