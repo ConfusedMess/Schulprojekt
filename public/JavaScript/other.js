@@ -17,7 +17,7 @@ function TestForShip(place) { // hier wird geschuat ob das attackierte feld ein 
     document.getElementById(place).style.backgroundColor = "yellow";
     ShipfieldsNumber--;
     if (ShipfieldsNumber === 0) {
-      alert("Verloren! Alle deine Schiffe wurden zerstört");// muss erweitert werden
+      ShowModal('LossModal');
     }
   }
 }
@@ -108,7 +108,7 @@ function TableClick(place) { // wenn man ein feld auswählt wird hier die gewäh
         counter2--
         TinyShips.Assigned[counter2] = "y"
 
-        
+
         switch (counter2) { // ändert den text auf den buttons
           case 0:
             document.getElementById("TinyShipButton").innerText = " 3 Fregatten übrig";
@@ -132,7 +132,7 @@ function TableClick(place) { // wenn man ein feld auswählt wird hier die gewäh
           return "error";
         }
         else {
-          alert("error");
+         ShowModal('ShipNotAllowedModal');
         }
       }
 
@@ -193,7 +193,7 @@ function TableClick(place) { // wenn man ein feld auswählt wird hier die gewäh
                 return "error";
               }
               else {
-                alert("error");
+                ShowModal('ShipNotAllowedModal');
               }
             }
           }
@@ -250,7 +250,7 @@ function TableClick(place) { // wenn man ein feld auswählt wird hier die gewäh
               return "error";
             }
             else {
-              alert("error");
+              ShowModal('ShipNotAllowedModal');
             }
 
 
@@ -317,7 +317,7 @@ function TableClick(place) { // wenn man ein feld auswählt wird hier die gewäh
                 return "error";
               }
               else {
-                alert("error");
+                ShowModal('ShipNotAllowedModal');
               }
             }
           }
@@ -372,7 +372,7 @@ function TableClick(place) { // wenn man ein feld auswählt wird hier die gewäh
               return "error";
             }
             else {
-              alert("error");
+              ShowModal('ShipNotAllowedModal');
             }
           }
         }
@@ -415,7 +415,7 @@ function TableClick(place) { // wenn man ein feld auswählt wird hier die gewäh
 
             BigShips.Assigned = "y";
 
- 
+
             document.getElementById("BigShipButton").innerText = " kein Schlachtschiff übrig";
             // Mark fields and return button to default state
             document.getElementById(fourthplace).style.backgroundColor = "#333300";
@@ -432,7 +432,7 @@ function TableClick(place) { // wenn man ein feld auswählt wird hier die gewäh
               return "error";
             }
             else {
-              alert("error");
+              ShowModal('ShipNotAllowedModal');
             }
           }
         }
@@ -479,7 +479,7 @@ function TableClick(place) { // wenn man ein feld auswählt wird hier die gewäh
             return "error";
           }
           else {
-            alert("error");
+            ShowModal('ShipNotAllowedModal');
           }
         }
       }

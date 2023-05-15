@@ -23,13 +23,11 @@ function AutoPlacementE() {
         RandomizeAlignment();
         place = RandomizePlace(10);
         answer = TableClick(place);
-        console.log("medship");
          while (answer === "error" || OneFieldDistanceE(place) === false) {
             RandomizeAlignment();
             place = RandomizePlace(10);
             answer = "";
             answer = TableClickE(place);
-            console.log("medshiploop");
         }
         Buttonpressed = 0;
     } for (x = 1; x <= 3; x++) {
@@ -75,18 +73,17 @@ function TableClickE(place) { // wenn man ein feld auswählt wird hier die gewä
           TinyShipsE.Assigned[counter2] = "y"
 
           Buttonpressed = 0;
-          console.log('did something');
           break;
         } else if (counter2 === 3) {
           if (RandomGenerated === true) {
             return "error";
           }
           else {
-            alert("error");
+                ShowModal('FehlerModal');
           }
         }
-        
-  
+
+
       }
     }
     if (Buttonpressed === 2) {
@@ -99,7 +96,7 @@ function TableClickE(place) { // wenn man ein feld auswählt wird hier die gewä
           GridNumber = place.slice(0, 1);
           GridChar = place.slice(1, 2);
         }
-  
+
         for (counter = 0; counter < AllChars.length; counter++) {// goes up the alphabet one place
           if (AllChars[counter] === GridChar) {
             counter++;
@@ -118,18 +115,18 @@ function TableClickE(place) { // wenn man ein feld auswählt wird hier die gewä
                 SmallShipsE[`ship${counter2}`][1] = secondplace;
                 counter2--;
                 SmallShipsE.Assigned[counter2] = "y"
-  
-  
+
+
                 Buttonpressed = 0;
                 break;
-  
+
               }
               else if (counter2 === 2) {
                 if (RandomGenerated === true) {
                   return "error";
                 }
                 else {
-                  alert("error");
+                    ShowModal('ShipNotAllowedModal');
                 }
               }
             }
@@ -145,10 +142,10 @@ function TableClickE(place) { // wenn man ein feld auswählt wird hier die gewä
           GridNumber = place.slice(0, 1);
           GridChar = place.slice(1, 2);
         }
-  
+
         if (GridNumber <= 11) {// to prevent placing ships outside of field
-  
-  
+
+
           GridNumber++;
           secondplace = GridNumber + GridChar;
           for (counter2 = 0; counter2 <= 2; counter2++)
@@ -164,21 +161,21 @@ function TableClickE(place) { // wenn man ein feld auswählt wird hier die gewä
 
               Buttonpressed = 0;
               break;
-  
+
             }
             else if (counter2 === 2) {
               if (RandomGenerated === true) {
                 return "error";
               }
               else {
-                alert("error");
+                ShowModal('ShipNotAllowedModal');
               }
-  
-  
+
+
             }
           }
         }
-  
+
       }
     }
     else if (Buttonpressed === 3) {
@@ -212,23 +209,22 @@ function TableClickE(place) { // wenn man ein feld auswählt wird hier die gewä
                 MediumShipsE[`ship${counter2}`][0] = place;
                 MediumShipsE[`ship${counter2}`][1] = secondplace;
                 MediumShipsE[`ship${counter2}`][2] = thirdplace;
-  
+
                 counter2--;
                 MediumShipsE.Assigned[counter2] = "y";
-  
-  
+
+
                 Buttonpressed = 0;
-                console.log("Assigned Medium Ship" +counter2);
                 break;
-                
-  
+
+
               }
               else if (counter2 === 1) {
                 if (RandomGenerated === true) {
                   return "error";
                 }
                 else {
-                  alert("error");
+                  ShowModal('ShipNotAllowedModal');
                 }
               }
             }
@@ -257,27 +253,27 @@ function TableClickE(place) { // wenn man ein feld auswählt wird hier die gewä
               MediumShipsE[`ship${counter2}`][0] = place;
               MediumShipsE[`ship${counter2}`][1] = secondplace;
               MediumShipsE[`ship${counter2}`][2] = thirdplace;
-  
+
               counter2--;
               MediumShipsE.Assigned[counter2] = "y";
-  
-  
+
+
               Buttonpressed = 0;console.log("Assigned Medium Ship" +counter2);
               break;
-              
+
             }
             else if (counter2 === 1) {
               if (RandomGenerated === true) {
                 return "error";
               }
               else {
-                alert("error");
+                ShowModal('ShipNotAllowedModal');
               }
             }
           }
         }
       }
-    
+
     }
      else if (Buttonpressed === 4) {
       if (alignment === "h") {//looks if vertical or horizontal is selected
@@ -303,7 +299,7 @@ function TableClickE(place) { // wenn man ein feld auswählt wird hier die gewä
             counter++;
             GridChar = AllChars[counter];
             fourthplace = GridNumber + GridChar;
-  
+
             if (BigShipsE.Assigned === "n" && NotMarkedAdvancedE(place) && NotMarkedAdvancedE(secondplace)
               && NotMarkedAdvancedE(thirdplace) && NotMarkedAdvancedE(fourthplace)) {
               //Because arrays begin with 0 but my objects not
@@ -311,18 +307,18 @@ function TableClickE(place) { // wenn man ein feld auswählt wird hier die gewä
               BigShipsE[`ship1`][1] = secondplace;
               BigShipsE[`ship1`][2] = thirdplace;
               BigShipsE[`ship1`][3] = fourthplace;
-  
+
               BigShipsE.Assigned = "y";
               Buttonpressed = 0;
               break;
-  
+
             }
             else {
               if (RandomGenerated === true) {
                 return "error";
               }
               else {
-                alert("error");
+                ShowModal('ShipNotAllowedModal');
               }
             }
           }
@@ -351,25 +347,25 @@ function TableClickE(place) { // wenn man ein feld auswählt wird hier die gewä
             BigShipsE[`ship1`][1] = secondplace;
             BigShipsE[`ship1`][2] = thirdplace;
             BigShipsE[`ship1`][3] = fourthplace;
-  
+
             BigShipsE.Assigned = "y";
             Buttonpressed = 0;
-  
-  
+
+
           }
           else {
             if (RandomGenerated === true) {
               return "error";
-              
+
             }
             else {
-              alert("error");
+              ShowModal('ShipNotAllowedModal');
             }
           }
         }
       }
-  
-  
+
+
     }
 }
   function NotMarkedE(place) { // hier wird getestet ob ein feld belegt ist false = belegt  true = nicht belegt
@@ -414,7 +410,7 @@ function TableClickE(place) { // wenn man ein feld auswählt wird hier die gewä
       GridChar = place.slice(1, 2);
     }
     IntNumber = parseInt(GridNumber);
-    if (NotMarkedE(IntNumber + 1 + GridChar)) { // gibt alle umliegenden felder an notmarked, wenn alles true 
+    if (NotMarkedE(IntNumber + 1 + GridChar)) { // gibt alle umliegenden felder an notmarked, wenn alles true
       if (NotMarkedE(IntNumber - 1 + GridChar)) {
         for (counter = 0; AllChars.length > counter; counter++) {
           if (AllChars[counter] === GridChar) {
@@ -424,24 +420,24 @@ function TableClickE(place) { // wenn man ein feld auswählt wird hier die gewä
                   if (NotMarkedE(IntNumber - 1 + AllChars[counter + 1])) {
                     if (NotMarkedE(IntNumber + 1 + AllChars[counter - 1])) {
                       if (NotMarkedE(IntNumber - 1 + AllChars[counter - 1])) { // wenn jemand einen hübscheren weg kennt dies zu prüfen kann er dies gern umschreiben mir fällt auf die schnelle nix ein
-                    
+
                         return true;
                       }
                     }
-  
+
                   }
                 }
               }
             }
           }
-  
-  
-  
+
+
+
         }
       }
-    } 
+    }
     return false; // sollte nur dies zurückgeben wenn ein "NotMarked" false zurückgibt
-  
+
   }
   function NotMarkedAdvancedE(place) {// testet umligende und angeklicktes feld true = alles frei; false= min 1 feld Belegt
     if (OneFieldDistanceE(place) && NotMarkedE(place)) {

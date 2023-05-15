@@ -22,8 +22,8 @@ function BeginGame() {
   }
 
   if (counter2 === 0) {
-    if (Initalise() === "error") { 
-      window.alert("Keine Schwierigkeit Ausgewählt");
+    if (Initalise() === "error") {
+    ShowModal('NoDifficultyModal');
     }
     else {
       document.getElementById("ButtonBox").style.visibility = "hidden";
@@ -32,7 +32,8 @@ function BeginGame() {
 
   }
   else {
-    alert("not all ships assigned");
+    ShowModal('NotAssignedModal');
+
   }
 }
 function InClickedArray(place) {
@@ -51,14 +52,14 @@ function ShootAtEnemie(place) {
     if(auto){
       return false;
     }
-    alert("error");
+    ShowModal('DoubleSelectModal');// unsicher ob richtiges Odal zugewiesen
   }
   else {
     for (specialcounter = 1; specialcounter < 5; specialcounter++) {
       if (TinyShipsE[`ship${specialcounter}`] === place) {
         TinyShipsE[`ship${specialcounter}H`] = true;
         notMarked = false
-        alert('Schiff zerstört')
+            ShowModal('DestroyedModal');
       }
     }
     for (specialcounter = 1; specialcounter < 4; specialcounter++) {
@@ -67,7 +68,7 @@ function ShootAtEnemie(place) {
           SmallShipsE[`ship${specialcounter}H`][specialcounter2] = true;
           notMarked = false
           if (SmallShipsE[`ship${specialcounter}H`][0] === true && SmallShipsE[`ship${specialcounter}H`][1] === true){
-            alert('Schiff zerstört')
+                ShowModal('DestroyedModal');
           }
         }
       }
@@ -78,7 +79,7 @@ function ShootAtEnemie(place) {
           MediumShipsE[`ship${specialcounter}H`][specialcounter2] = true;
           notMarked = false
           if (MediumShipsE[`ship${specialcounter}H`][0] === true && MediumShipsE[`ship${specialcounter}H`][1] === true && MediumShipsE[`ship${specialcounter}H`][2] === true){
-            alert('Schiff zerstört')
+                ShowModal('DestroyedModal');
           }
         }
       }
@@ -88,7 +89,7 @@ function ShootAtEnemie(place) {
         BigShipsE[`ship1H`][specialcounter2] = true;
         notMarked = false
         if (BigShipsE[`ship1H`][0] === true && BigShipsE[`ship1H`][1] === true && BigShipsE[`ship1H`][2] === true && BigShipsE[`ship1H`][3] === true){
-          alert('Schiff zerstört')
+              ShowModal('DestroyedModal');
         }
       }
     }
@@ -103,7 +104,7 @@ function ShootAtEnemie(place) {
       clicked.push(place);
       ShipfieldsNumberE--;
       if (ShipfieldsNumberE === 0){
-        alert('Du hast gewonnen!');
+            ShowModal('VictoryModal');
       }
       else {
       //console.log('Getroffen: '+place)
