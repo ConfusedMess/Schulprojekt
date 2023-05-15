@@ -45,10 +45,12 @@
             align-content: flex-start;
             position: relative;
         }
-        .StartButton{
+
+        .StartButton {
             border: 3px solid #212121;
         }
-        .StartButton:hover{
+
+        .StartButton:hover {
             background-color: #F8BC5C
         }
 
@@ -62,21 +64,24 @@
         }
 
         #Header {
+            /* styling für den header (leiste wo logout ist)*/
             background-color: black;
             border-bottom: 3px solid #F2BF5E;
             padding-right: 10px;
             padding-bottom: 5px;
 
-            
+
 
         }
-        .LogoutButton{
+
+        .LogoutButton {
             border: 3px solid blue;
-            float:right;
+            float: right;
             border-radius: 16px;
-            padding:5px;
+            padding: 5px;
         }
-        .LogoutButton:hover{
+
+        .LogoutButton:hover {
             background-color: blue
         }
     </style>
@@ -88,8 +93,8 @@
 
         function SetHeight() { // ermittelt die hhöhe und breite des fesnter und passt die größe der seite an
             let hohe = window.innerHeight;
-            document.getElementById("main").style.height = hohe*0.95 + "px";
-            document.getElementById("Header").style.height = hohe*0.05 + "px";
+            document.getElementById("main").style.height = hohe * 0.95 + "px";
+            document.getElementById("Header").style.height = hohe * 0.05 + "px";
             console.log("hab was gemacht");
         }
 
@@ -102,7 +107,7 @@
 <body onload="SiteSetup()">
     <!-- The flexible grid (content) -->
     <div id="Header">
-        <!-- <div id="side_l"> dies ist der html code für die seitenleiste welche momentan nicht implementiert ist
+        <!-- <div id="side_l">    (dies ist der html code für die seitenleiste welche momentan nicht implementiert ist)
             <a href="/dashboard">
                 <div class="LeftBox">
 
@@ -159,7 +164,7 @@
             @csrf
             <button type="submit" class="LogoutButton">Log Out</button>
         </form>
-        </div>
+    </div>
     </div>
     <!-- in den slot ist der html code welcher sich ändert -->
     <div id="main">
