@@ -441,7 +441,17 @@ function BotMedium(){       //Gibt eine Schuss Position zurück und aktiviert Pl
     } else {                //Getroffen
         ChangeField(shot);
         DestroyShips(shot);
-        let a=TestForShip(BotMove());
+        noOpenField=true;
+        for (let h = 0; h < 12; h++){
+            for (let l = 0; l < 12; l++){
+                if(feld[h][l] === 0 || feld[h][l] === 1){
+                    noOpenField=false
+                }
+            }
+        }
+        if(!noOpenField){
+            TestForShip(BotMove());
+        }
         return shot
     }
 }
