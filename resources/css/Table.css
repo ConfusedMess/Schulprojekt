@@ -1,6 +1,11 @@
-#SmallShipButton:active {
-    background-color: #009900;
+.fire{
+    opacity: 0.9;
+    max-width: 100%;
+    max-height: 100%;
+    overflow:hidden
+    
 }
+
 #ButtonBox{
     flex: auto;
     align-items: baseline;
@@ -32,7 +37,6 @@
     background-color: darkblue;
     box-shadow: 0 5px #666;
     transform: translateY(4px);
-    
 }
 #ButtonBox > select{
     background-color: blue;
@@ -90,7 +94,7 @@ label {
     border: none;
     border-radius: 16px;
     box-shadow: 0 9px #999;
-
+    min-width: 126px;
 }
 
 .dropdown-content {
@@ -134,23 +138,26 @@ label {
 
 table {
     /* css fürs styling*/
-    color: #86b300;
-    background-color: black;
+    color: darkblue;
+   /* background-color: black;*/
     border: none;
     border-collapse: collapse;
     margin:auto
 }
 .TableHeader {
-    border-color: greenyellow;
-    border-style: solid;
+    border-color: darkblue;
+    border-style: outset;
+    border-width: 2px;
     width: 70px;
     height: 70px;
     font-size: 20px;
     text-align: center;
+    border-bottom-width: 3.5px;
 }
 td {
-    border-color: greenyellow;
+    border-color: darkblue;
     border-style: outset;
+    border-width: 2px;
     padding: 0px;
     margin: 0px;
 }
@@ -159,11 +166,13 @@ td {
     height: 70px;
     font-size: 20px;
     text-align: center;
+    border-right-width: 3.5px;
 }
 .ShipBox {
     flex: auto;
     align-items: baseline;
     border-radius: 16px;
+    /*background: url('@/ressources/Images/TemporaryBackground.png');*/
     background: linear-gradient(to left, rgb(126, 119, 93), rgb(80, 75, 61), rgb(47, 45, 33));
     padding: 20px;
     margin-top: 10px;
@@ -184,13 +193,16 @@ td {
 
 .shipbutton {
     color: #39e600;
-    background-color: black;
     border: none;
+    background-color: #00000000;
     padding: 5px;
     margin: 0px;
     width: 70px;
     height: 70px;
     font-size: 0px;
+    opacity: 0.5;
+    background-size: cover;
+    background-position: center;
 }
 @media screen and (max-width: 1200px) {
     .shipbutton{

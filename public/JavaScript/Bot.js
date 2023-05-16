@@ -71,7 +71,7 @@ function Initalise(){ //Einmal bei Spielbegin ausführen
             InitialiseBot()
     }
     else{
-                return "error"// gibt  fehler zurück wenn keine schwierigkeit ausgewählt
+        return "error"// gibt  fehler zurück wenn keine schwierigkeit ausgewählt
     }
 
 }

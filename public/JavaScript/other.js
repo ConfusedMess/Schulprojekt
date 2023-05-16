@@ -14,7 +14,7 @@ function TestForShip(place) { // hier wird geschuat ob das attackierte feld ein 
     document.getElementById(place).style.backgroundColor = "red";
   }
   else {
-    document.getElementById(place).style.backgroundColor = "yellow";
+    document.getElementById(place).innerHTML="<img class='fire' src='/Images/Fire.gif' alt='Hit'>";
     ShipfieldsNumber--;
     if (ShipfieldsNumber === 0) {
       ShowModal('LossModal');
@@ -111,20 +111,27 @@ function TableClick(place) { // wenn man ein feld auswählt wird hier die gewäh
 
         switch (counter2) { // ändert den text auf den buttons
           case 0:
-            document.getElementById("TinyShipButton").innerText = " 3 Fregatten übrig";
+            document.getElementById("TinyShipButton").innerText = " 3 Zerstörer übrig";
             break;
           case 1:
-            document.getElementById("TinyShipButton").innerText = " 2 Fregatten übrig";
+            document.getElementById("TinyShipButton").innerText = " 2 Zerstörer übrig";
             break;
           case 2:
-            document.getElementById("TinyShipButton").innerText = " 1 Fregatte übrig";
+            document.getElementById("TinyShipButton").innerText = " 1 Zerstörer übrig";
             break;
           case 3:
-            document.getElementById("TinyShipButton").innerText = " keine Fregatte übrig";
+            document.getElementById("TinyShipButton").innerText = " kein Zerstörer übrig";
             break;
         }
         document.getElementById("TinyShipButton").style.backgroundColor = "blue";// setzt den button zurück
-        document.getElementById(place).style.backgroundColor = "#339933";// markiert das feld
+
+        if(alignment === "v"){
+          document.getElementById(place).style.backgroundImage = "url('/Images/TinyShip.JPG')";
+          document.getElementById(place).style.transform = "rotate(270deg)";
+        }else{
+          document.getElementById(place).style.backgroundImage = "url('/Images/TinyShip.JPG')";
+          document.getElementById(place).style.transform = "rotate(0deg)";
+        }
         Buttonpressed = 0;
         break;
       } else if (counter2 === 3) {
@@ -171,19 +178,23 @@ function TableClick(place) { // wenn man ein feld auswählt wird hier die gewäh
 
               switch (counter2) { // ändert den text auf den buttons
                 case 0:
-                  document.getElementById("SmallShipButton").innerText = " 2 Zerstörer übrig";
+                  document.getElementById("SmallShipButton").innerText = " 2 Kreuzer übrig";
                   break;
                 case 1:
-                  document.getElementById("SmallShipButton").innerText = " 1 Zerstörer übrig";
+                  document.getElementById("SmallShipButton").innerText = " 1 Kreuzer übrig";
                   break;
                 case 2:
-                  document.getElementById("SmallShipButton").innerText = " kein Zerstörer übrig";
+                  document.getElementById("SmallShipButton").innerText = " keine Kreuzer übrig";
                   break;
               }
               // Mark fields and return button to default state
               document.getElementById(secondplace).style.backgroundColor = "#006600";
               document.getElementById("SmallShipButton").style.backgroundColor = "blue";
-              document.getElementById(place).style.backgroundColor = "#006600";
+                document.getElementById(place).style.backgroundImage = "url('/Images/SmallShipLeft.JPG')";
+                document.getElementById(place).style.transform = "rotate(0deg)";
+                document.getElementById(secondplace).style.backgroundImage = "url('/Images/SmallShipRight.JPG')";
+                document.getElementById(secondplace).style.transform = "rotate(0deg)";
+              
               Buttonpressed = 0;
               break;
 
@@ -238,9 +249,11 @@ function TableClick(place) { // wenn man ein feld auswählt wird hier die gewäh
                 break;
             }
             // Mark fields and return button to default state
-            document.getElementById(secondplace).style.backgroundColor = "#006600";
+            document.getElementById(place).style.backgroundImage = "url('/Images/SmallShipRight.JPG')";
+            document.getElementById(place).style.transform = "rotate(270deg)";
             document.getElementById("SmallShipButton").style.backgroundColor = "blue";
-            document.getElementById(place).style.backgroundColor = "#006600";
+            document.getElementById(secondplace).style.backgroundImage = "url('/Images/SmallShipLeft.JPG')";
+            document.getElementById(secondplace).style.transform = "rotate(270deg)";
             Buttonpressed = 0;
             break;
 
@@ -304,10 +317,13 @@ function TableClick(place) { // wenn man ein feld auswählt wird hier die gewäh
                   break;
               }
               // Mark fields and return button to default state
-              document.getElementById(thirdplace).style.backgroundColor = "#003300";
-              document.getElementById(secondplace).style.backgroundColor = "#003300";
+              document.getElementById(place).style.backgroundImage = "url('/Images/SubLeft.JPG')";
+              document.getElementById(place).style.transform = "rotate(0deg)";
+              document.getElementById(secondplace).style.backgroundImage = "url('/Images/SubMid.JPG')";
+              document.getElementById(secondplace).style.transform = "rotate(0deg)";
+              document.getElementById(thirdplace).style.backgroundImage = "url('/Images/SubRight.JPG')";
+              document.getElementById(thirdplace).style.transform = "rotate(0deg)";
               document.getElementById("MediumShipButton").style.backgroundColor = "blue";
-              document.getElementById(place).style.backgroundColor = "#003300";
               Buttonpressed = 0;
               break;
 
@@ -359,10 +375,13 @@ function TableClick(place) { // wenn man ein feld auswählt wird hier die gewäh
                 break;
             }
             // Mark fields and return button to default state
-            document.getElementById(thirdplace).style.backgroundColor = "#336600";
-            document.getElementById(secondplace).style.backgroundColor = "#336600";
+            document.getElementById(place).style.backgroundImage = "url('/Images/SubRight.JPG')";
+            document.getElementById(place).style.transform = "rotate(270deg)";
+            document.getElementById(secondplace).style.backgroundImage = "url('/Images/SubMid.JPG')";
+            document.getElementById(secondplace).style.transform = "rotate(270deg)";
+            document.getElementById(thirdplace).style.backgroundImage = "url('/Images/SubLeft.JPG')";
+            document.getElementById(thirdplace).style.transform = "rotate(270deg)";
             document.getElementById("MediumShipButton").style.backgroundColor = "blue";
-            document.getElementById(place).style.backgroundColor = "#336600";
             Buttonpressed = 0;
             break;
 
@@ -418,11 +437,15 @@ function TableClick(place) { // wenn man ein feld auswählt wird hier die gewäh
 
             document.getElementById("BigShipButton").innerText = " kein Schlachtschiff übrig";
             // Mark fields and return button to default state
-            document.getElementById(fourthplace).style.backgroundColor = "#333300";
-            document.getElementById(thirdplace).style.backgroundColor = "#333300";
-            document.getElementById(secondplace).style.backgroundColor = "#333300";
+            document.getElementById(place).style.backgroundImage = "url('/Images/BigShipLeftLeft.JPG')";
+            document.getElementById(place).style.transform = "rotate(0deg)";
+            document.getElementById(secondplace).style.backgroundImage = "url('/Images/BigShipLeft.JPG')";
+            document.getElementById(secondplace).style.transform = "rotate(0deg)";
+            document.getElementById(thirdplace).style.backgroundImage = "url('/Images/BigShipRight.JPG')";
+            document.getElementById(thirdplace).style.transform = "rotate(0deg)";
+            document.getElementById(fourthplace).style.backgroundImage = "url('/Images/OBigShipRightRight.JPG')";
+            document.getElementById(fourthplace).style.transform = "rotate(0deg)";
             document.getElementById("BigShipButton").style.backgroundColor = "blue";
-            document.getElementById(place).style.backgroundColor = "#333300";
             Buttonpressed = 0;
             break;
 
@@ -465,11 +488,15 @@ function TableClick(place) { // wenn man ein feld auswählt wird hier die gewäh
           document.getElementById("BigShipButton").innerText = " kein Schlachtschiff übrig";
           BigShips.Assigned = "y";
           // Mark fields and return button to default state
-          document.getElementById(fourthplace).style.backgroundColor = "#006600";
-          document.getElementById(thirdplace).style.backgroundColor = "#006600";
-          document.getElementById(secondplace).style.backgroundColor = "#006600";
+          document.getElementById(place).style.backgroundImage = "url('/Images/OBigShipRightRight.JPG')";
+          document.getElementById(place).style.transform = "rotate(270deg)";
+          document.getElementById(secondplace).style.backgroundImage = "url('/Images/BigShipRight.JPG')";
+          document.getElementById(secondplace).style.transform = "rotate(270deg)";
+          document.getElementById(thirdplace).style.backgroundImage = "url('/Images/BigShipLeft.JPG')";
+          document.getElementById(thirdplace).style.transform = "rotate(270deg)";
+          document.getElementById(fourthplace).style.backgroundImage = "url('/Images/BigShipLeftLeft.JPG')";
+          document.getElementById(fourthplace).style.transform = "rotate(270deg)";
           document.getElementById("BigShipButton").style.backgroundColor = "blue";
-          document.getElementById(place).style.backgroundColor = "#006600";
           Buttonpressed = 0;
 
 
