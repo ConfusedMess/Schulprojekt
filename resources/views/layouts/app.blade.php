@@ -73,6 +73,13 @@
 
 
         }
+        table{
+            background: url('/Images/Hintergrund.gif');
+            -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        }
 
         .LogoutButton {
             border: 3px solid blue;
@@ -95,7 +102,6 @@
             let hohe = window.innerHeight;
             document.getElementById("main").style.height = hohe * 0.95 + "px";
             document.getElementById("Header").style.height = hohe * 0.05 + "px";
-            console.log("hab was gemacht");
         }
 
         function BackgroundLoad() { //fügt das hintergrundbild ein
