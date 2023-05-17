@@ -7,14 +7,13 @@
 }
 
 #ButtonBox{
-    flex: auto;
-    align-items: baseline;
     border-radius: 16px;
     background: linear-gradient(to left, rgb(126, 119, 93), rgb(80, 75, 61), rgb(47, 45, 33));
-    padding: 30px;
+    padding: 20px;
     margin-top: 10px;
     margin-bottom: 10px;
     visibility: visible;
+    text-align: center;
 }
 #ButtonBox > button{
     display: inline-block;

@@ -97,7 +97,7 @@
     <link rel="stylesheet" href="/CSS/Table.css">
     <link rel="stylesheet" href="/CSS/Modal.css">
     <link rel="stylesheet" href="/CSS/other.css">
-    <link rel="stylesheet" href="/CSS/app.css">
+    <!-- <link rel="stylesheet" href="/CSS/app.css"> unused-->
     <script>
         function SiteSetup() { //mehrere funktionen werden hier zur ausführung beim laden gesammelt
             SetHeight();
