@@ -126,7 +126,7 @@
             <div>Bitte wähle eine schwierigkeit</div>
         </div>
     </div>
-    <div id="NotAssignedModal" class="modal">
+    <div id="NotAssignedModal" class="modal reloadmodal">
         <!-- Hier sind die Modals (Dialogfenster)-->
         <div class="modal-content">
             <!-- hier wird anstatt das modal zu schließen

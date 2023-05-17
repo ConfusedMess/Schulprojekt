@@ -12,9 +12,12 @@ function ModalClose() {
   modal.style.display = "none";
 }
 
-// Wenn neben das Modal gedrükt wird wird der Modal Geschlossen
+// Wenn neben das Modal gedrückt wird wird der Modal Geschlossen
 window.onclick = function(event) {
-  if (event.target == modal) {
+  if (event.target == modal && modal.id === "NotAssignedModal") {
+    location.reload()
+  }
+  else if(event.target == modal){
     modal.style.display = "none";
   }
 }

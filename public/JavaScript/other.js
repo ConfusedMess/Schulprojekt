@@ -310,10 +310,10 @@ function TableClick(place) { // wenn man ein feld auswählt wird hier die gewäh
 
               switch (counter2) { // ändert den text auf den buttons
                 case 0:
-                  document.getElementById("MediumShipButton").innerText = " 1 Kreuzer übrig";
+                  document.getElementById("MediumShipButton").innerText = " 1 U-Boot übrig";
                   break;
                 case 1:
-                  document.getElementById("MediumShipButton").innerText = " kein Kreuzer übrig";
+                  document.getElementById("MediumShipButton").innerText = " kein U-Boot übrig";
                   break;
               }
               // Mark fields and return button to default state
@@ -368,10 +368,10 @@ function TableClick(place) { // wenn man ein feld auswählt wird hier die gewäh
 
             switch (counter2) { // ändert den text auf den buttons
               case 0:
-                document.getElementById("MediumShipButton").innerText = " 1 Kreuzer übrig";
+                document.getElementById("MediumShipButton").innerText = " 1 U-Boot übrig";
                 break;
               case 1:
-                document.getElementById("MediumShipButton").innerText = " kein Kreuzer übrig";
+                document.getElementById("MediumShipButton").innerText = " kein U-Boot übrig";
                 break;
             }
             // Mark fields and return button to default state
