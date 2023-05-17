@@ -6,6 +6,7 @@
     <title>Schiffe Versenken</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <style>
         /* Ein paar Standard einstellungen */
         body {
@@ -73,12 +74,13 @@
 
 
         }
-        table{
+
+        table {
             background: url('/Images/Hintergrund.gif');
             -webkit-background-size: cover;
-        -moz-background-size: cover;
-        -o-background-size: cover;
-        background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
         }
 
         .LogoutButton {
@@ -92,6 +94,10 @@
             background-color: blue
         }
     </style>
+    <link rel="stylesheet" href="/CSS/Table.css">
+    <link rel="stylesheet" href="/CSS/Modal.css">
+    <link rel="stylesheet" href="/CSS/other.css">
+    <link rel="stylesheet" href="/CSS/app.css">
     <script>
         function SiteSetup() { //mehrere funktionen werden hier zur ausführung beim laden gesammelt
             SetHeight();

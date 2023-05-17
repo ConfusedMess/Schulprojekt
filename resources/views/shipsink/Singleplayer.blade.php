@@ -1,9 +1,6 @@
 <x-app-layout>
     <!-- um lokalen server zu starten sodass man die seite sieht schreibt "php artisan serve" in das terminal(ohne semicolons)-->
-    @vite('resources/css/Table.css')
-    <!-- hier wird vite genutzt um die css Dateien zu laden-->
-    @vite('resources/css/other.css')
-    @vite('resources/css/Modal.css')
+
 
 
     <div id="ButtonBox">
