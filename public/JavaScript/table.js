@@ -30,10 +30,10 @@ function CreateContent(Size, Number, player) {
         var td = tr.insertCell(counter2);
         if (player === 1) {//this is the html code for the upper playing field(friendly field/1 player) (excluding header)
             content = `<button onmouseout="RemovePlacementIndicator('${pos}')" onmouseover="PlacementIndicator('${pos}')"\
-        onclick="TableClick('${pos}')" id="${pos}" class="shipbutton"> </button>`
+        onclick="Player1Click('${pos}')" id="${pos}" class="shipbutton"> </button>`
         } else {// this is the html code for the lower playing field (enemie field/ 2 player )(exlcluding header which is almost identical to player 1)
-            content = `<button id="2${pos}" onmouseover="ShotIndicator('${pos}')"\ 
-            onmouseout="RemoveShotIndicator('${pos}')" onclick="ShootAtEnemie('${pos}')" class='shipbutton'> </button>`
+            content = `<button id="2${pos}" onmouseover="Player2Indicator('${pos}')"\
+            onmouseout="RemovePlayer2Indicator('${pos}')" onclick="Player2Click('${pos}')" class='shipbutton'> </button>`
         }// the 2 before ${pos} is to deifferentiate between field 1 and 2
         td.innerHTML = (content);
     }

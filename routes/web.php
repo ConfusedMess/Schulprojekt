@@ -28,8 +28,8 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
-Route::get('ship/show', [ShipController::class, 'show']);
-Route::get('ship/create', [ShipController::class, 'create']);
+Route::get('ship/Singleplayer', [ShipController::class, 'showSingleplayer']);
+Route::get('ship/Multiplayer', [ShipController::class, 'showMultiplayer']);
 
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

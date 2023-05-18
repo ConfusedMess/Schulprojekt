@@ -52,6 +52,52 @@
 #ButtonBox > select > option{
     background-color: blue;
 }
+#ButtonBoxPlayer2{
+    border-radius: 16px;
+    background: linear-gradient(to left, rgb(126, 119, 93), rgb(80, 75, 61), rgb(47, 45, 33));
+    padding: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    visibility: hidden;
+    text-align: center;
+}
+#ButtonBoxPlayer2 > button{
+    display: inline-block;
+    margin: 10px 5px;
+    padding: 15px 25px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: blue;
+    border: none;
+    border-radius: 16px;
+    box-shadow: 0 9px #999;
+}
+#ButtonBoxPlayer2 > button:hover{
+    background-color: darkblue;
+    border-radius: 16px;
+}
+#ButtonBoxPlayer2 > button:active{
+    background-color: darkblue;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+#ButtonBoxPlayer2 > select{
+    background-color: blue;
+    border-radius: 16px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 9px #999;
+    padding: 15px 25px;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+}
+#ButtonBoxPlayer2 > select > option{
+    background-color: blue;
+}
 #EnemieTable > button{
     display: inline-block;
     padding: 15px 25px;
@@ -169,6 +215,7 @@ td {
     border-right-width: 3.5px;
 }
 .ShipBox {
+    display: block;
     flex: auto;
     align-items: baseline;
     border-radius: 16px;

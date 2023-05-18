@@ -6,11 +6,15 @@ use Illuminate\Http\Request;
 
 class ShipController extends Controller
 {
-    public function show()
+    public function showSingleplayer()
     {
         return view("shipsink/Singleplayer");
     }
-// public function show()
+    public function showMultiplayer()
+    {
+        return view("shipsink/Multiplayer");
+    }
+    // public function show()
 //{
 //    return view("shipsink/show");
 //}

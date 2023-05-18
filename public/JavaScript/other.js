@@ -27,7 +27,17 @@ function ChangeAlignment(current) { // für die radio buttons
   alignment = current;
   document.getElementById(current).checked = true;
 }
-
+function ChangeAlignment2(current) { // für die radio buttons
+  document.getElementById(alignment2).checked = false;
+  alignment2 = current;
+  if(alignment2 === "v2"){
+    alignment = "v"
+  }
+  else{
+    alignment = "h"
+  }
+  document.getElementById(current).checked = true;
+}
 function SelectedButton() { // hier wird ein button auf weiß zurückgesetzt wenn er nicht mehr aktiv ist (muss in zukunft verbessert werden)
   switch (Buttonpressed) {
     case 0:
@@ -194,7 +204,7 @@ function TableClick(place) { // wenn man ein feld auswählt wird hier die gewäh
                 document.getElementById(place).style.transform = "rotate(0deg)";
                 document.getElementById(secondplace).style.backgroundImage = "url('/Images/SmallShipRight.JPG')";
                 document.getElementById(secondplace).style.transform = "rotate(0deg)";
-              
+
               Buttonpressed = 0;
               break;
 

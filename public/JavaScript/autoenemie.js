@@ -375,7 +375,6 @@ function TableClickE(place) { // wenn man ein feld auswählt wird hier die gewä
     for (specialcounter = 1; specialcounter < 5; specialcounter++) {
       if (TinyShipsE[`ship${specialcounter}`] === place) {
         marked = false;
-        console.log("test");
       }
     }
     for (specialcounter = 1; specialcounter < 4; specialcounter++) {
@@ -397,6 +396,7 @@ function TableClickE(place) { // wenn man ein feld auswählt wird hier die gewä
         marked = false;
       }
     }
+    console.log(marked);
     return marked;
   }
   function OneFieldDistanceE(place) {  //Schut ob feld in 1 feld umkreis belegt true = umliegende felder frei false= min 1 umliegenes feld belegt

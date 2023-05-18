@@ -28,7 +28,18 @@ function NotMarked(place) { // hier wird getestet ob ein feld belegt ist false =
   }
   return marked;
 }
-
+function NotMarkedBoth(place){
+    let answer =false;
+    if(CurrentPlayer === 2){
+        answer=NotMarkedE(place);
+        console.log("check for player 2 success");
+    }
+    else{
+       answer= NotMarked(place);
+    }
+    console.log(answer)
+    return answer;
+}
 function OneFieldDistance(place) {  //Schut ob feld in 1 feld umkreis belegt true = umliegende felder frei false= min 1 umliegenes feld belegt
   let IntNumber;
   if (place.length > 2) { // standard slice also zb. place=B6 in GridChar=B  Gridnumber=6 umwandeln
@@ -40,7 +51,7 @@ function OneFieldDistance(place) {  //Schut ob feld in 1 feld umkreis belegt tru
     GridChar = place.slice(1, 2);
   }
   IntNumber = parseInt(GridNumber);
-  if (NotMarked(IntNumber + 1 + GridChar)) { // gibt alle umliegenden felder an notmarked, wenn alles true 
+  if (NotMarked(IntNumber + 1 + GridChar)) { // gibt alle umliegenden felder an notmarked, wenn alles true
     if (NotMarked(IntNumber - 1 + GridChar)) {
       for (counter = 0; AllChars.length > counter; counter++) {
         if (AllChars[counter] === GridChar) {
@@ -81,7 +92,7 @@ function MarkMyShips() {
   for (counter=1;counter<6;counter++)
   {//SmallShips[`ship${specialcounter}`]
    // document.getElementById(mark).style.backgroundColor = "green";
-    
+
   }
 }
 MarkMyShips();
@@ -92,7 +103,7 @@ function ShotIndicator(place) {
     document.getElementById("2" + place).style.backgroundColor = "yellow";
   }
 }
-function RemoveShotIndicator(place) {
+function RemovePlayer2Indicator(place) {
   if (InClickedArray(place) === false) {
     document.getElementById("2" + place).style.backgroundColor = "#00000000";
   }
@@ -103,7 +114,7 @@ function shoot(place) {//Hier kann der code für das "schießen" geschrieben wer
 }
 function RemovePlacementIndicator(place) {
   if (Buttonpressed === 1) {
-    if (NotMarked(place)){
+    if (NotMarkedBoth(place)){
       document.getElementById(place).style.backgroundColor = "#00000000";
       document.getElementById(place).style.backgroundImage = "none";
     }
@@ -113,7 +124,7 @@ function RemovePlacementIndicator(place) {
       GridNumber = place.slice(0, 2);
       GridChar = place.slice(2, 3);
     }
-    else {
+    else if(place.length > 3) {
       GridNumber = place.slice(0, 1);
       GridChar = place.slice(1, 2);
     }
@@ -123,13 +134,13 @@ function RemovePlacementIndicator(place) {
       else {
         for (counter = 0; counter < AllChars.length; counter++) {
           if (AllChars[counter] === GridChar) {
-            if (NotMarked(place)){
+            if (NotMarkedBoth(place)){
               document.getElementById(place).style.backgroundColor = "#00000000";
               document.getElementById(place).style.backgroundImage = "none";
             }
             counter++;
             place = GridNumber + AllChars[counter];
-            if (NotMarked(place)){
+            if (NotMarkedBoth(place)){
               document.getElementById(place).style.backgroundColor = "#00000000";
               document.getElementById(place).style.backgroundImage = "none";
             }
@@ -139,13 +150,13 @@ function RemovePlacementIndicator(place) {
       }
     }
     else if (alignment === "v" && GridNumber <= 11) {
-      if (NotMarked(place)){
+      if (NotMarkedBoth(place)){
         document.getElementById(place).style.backgroundColor = "#00000000";
         document.getElementById(place).style.backgroundImage = "none";
       }
       GridNumber++;
       var place = GridNumber + GridChar;
-      if (NotMarked(place)){
+      if (NotMarkedBoth(place)){
         document.getElementById(place).style.backgroundColor = "#00000000";
         document.getElementById(place).style.backgroundImage = "none";
       }
@@ -167,19 +178,19 @@ function RemovePlacementIndicator(place) {
       else {
         for (counter = 0; counter < AllChars.length; counter++) {
           if (AllChars[counter] === GridChar) {
-            if (NotMarked(place)){
+            if (NotMarkedBoth(place)){
               document.getElementById(place).style.backgroundColor = "#00000000";
               document.getElementById(place).style.backgroundImage = "none";
             }
             counter++;
             place = GridNumber + AllChars[counter];
-            if (NotMarked(place)){
+            if (NotMarkedBoth(place)){
               document.getElementById(place).style.backgroundColor = "#00000000";
               document.getElementById(place).style.backgroundImage = "none";
             }
             counter++;
             place = GridNumber + AllChars[counter];
-            if (NotMarked(place)){
+            if (NotMarkedBoth(place)){
               document.getElementById(place).style.backgroundColor = "#00000000";
               document.getElementById(place).style.backgroundImage = "none";
             }
@@ -188,19 +199,19 @@ function RemovePlacementIndicator(place) {
       }
     }
     else if (alignment === "v" && GridNumber <= 10) {
-      if (NotMarked(place)){
+      if (NotMarkedBoth(place)){
         document.getElementById(place).style.backgroundColor = "#00000000";
         document.getElementById(place).style.backgroundImage = "none";
       }
       GridNumber++;
       place = GridNumber + GridChar;
-      if (NotMarked(place)){
+      if (NotMarkedBoth(place)){
         document.getElementById(place).style.backgroundColor = "#00000000";
         document.getElementById(place).style.backgroundImage = "none";
       }
       GridNumber++;
       place = GridNumber + GridChar;
-      if (NotMarked(place)){
+      if (NotMarkedBoth(place)){
         document.getElementById(place).style.backgroundColor = "#00000000";
         document.getElementById(place).style.backgroundImage = "none";
       }
@@ -222,25 +233,25 @@ function RemovePlacementIndicator(place) {
       else {
         for (counter = 0; counter < AllChars.length; counter++) {
           if (AllChars[counter] === GridChar) {
-            if (NotMarked(place)){
+            if (NotMarkedBoth(place)){
               document.getElementById(place).style.backgroundColor = "#00000000";
               document.getElementById(place).style.backgroundImage = "none";
             }
             counter++;
             place = GridNumber + AllChars[counter];
-            if (NotMarked(place)){
+            if (NotMarkedBoth(place)){
               document.getElementById(place).style.backgroundColor = "#00000000";
               document.getElementById(place).style.backgroundImage = "none";
             }
             counter++;
             place = GridNumber + AllChars[counter];
-            if (NotMarked(place)){
+            if (NotMarkedBoth(place)){
               document.getElementById(place).style.backgroundColor = "#00000000";
               document.getElementById(place).style.backgroundImage = "none";
             }
             counter++;
             place = GridNumber + AllChars[counter];
-            if (NotMarked(place)){
+            if (NotMarkedBoth(place)){
               document.getElementById(place).style.backgroundColor = "#00000000";
               document.getElementById(place).style.backgroundImage = "none";
             }
@@ -249,25 +260,25 @@ function RemovePlacementIndicator(place) {
       }
     }
     else if (alignment === "v" && GridNumber <= 09) {
-      if (NotMarked(place)){
+      if (NotMarkedBoth(place)){
         document.getElementById(place).style.backgroundColor = "#00000000";
         document.getElementById(place).style.backgroundImage = "none";
       }
       GridNumber++;
       place = GridNumber + GridChar;
-      if (NotMarked(place)){
+      if (NotMarkedBoth(place)){
         document.getElementById(place).style.backgroundColor = "#00000000";
         document.getElementById(place).style.backgroundImage = "none";
       }
       GridNumber++;
       place = GridNumber + GridChar;
-      if (NotMarked(place)){
+      if (NotMarkedBoth(place)){
         document.getElementById(place).style.backgroundColor = "#00000000";
         document.getElementById(place).style.backgroundImage = "none";
       }
       GridNumber++;
       place = GridNumber + GridChar;
-      if (NotMarked(place))
+      if (NotMarkedBoth(place))
       {
         document.getElementById(place).style.backgroundColor = "#00000000";
         document.getElementById(place).style.backgroundImage = "none";
@@ -278,7 +289,7 @@ function RemovePlacementIndicator(place) {
 function PlacementIndicator(place) {   // Hier wird angezeigt wo das schiff sein würde wenn man das feld anklickt über das die maus gerdee ist
 
   if (Buttonpressed === 1) {
-    if (NotMarked(place))
+    if (NotMarkedBoth(place))
     if(alignment === "h")
     {
       document.getElementById(place).style.backgroundImage = "url('/Images/TinyShip.JPG')";
@@ -305,14 +316,14 @@ function PlacementIndicator(place) {   // Hier wird angezeigt wo das schiff sein
       else {
         for (counter = 0; counter < AllChars.length; counter++) {
           if (AllChars[counter] === GridChar) {
-            if (NotMarked(place)){
+            if (NotMarkedBoth(place)){
               document.getElementById(place).style.backgroundImage = "url('/Images/SmallShipLeft.JPG')";
               document.getElementById(place).style.transform = "rotate(0deg)";
             }
 
             counter++;
             place = GridNumber + AllChars[counter];
-            if (NotMarked(place)){
+            if (NotMarkedBoth(place)){
             document.getElementById(place).style.backgroundImage = "url('/Images/SmallShipRight.JPG')";
             document.getElementById(place).style.transform = "rotate(0deg)";
             }
@@ -322,13 +333,13 @@ function PlacementIndicator(place) {   // Hier wird angezeigt wo das schiff sein
 
     }
     else if (alignment === "v" && GridNumber <= 11) {
-      if (NotMarked(place)){
+      if (NotMarkedBoth(place)){
         document.getElementById(place).style.backgroundImage = "url('/Images/SmallShipRight.JPG')";
         document.getElementById(place).style.transform = "rotate(270deg)";
       }
       GridNumber++;
       place = GridNumber + GridChar;
-      if (NotMarked(place))
+      if (NotMarkedBoth(place))
       {
         document.getElementById(place).style.backgroundImage = "url('/Images/SmallShipLeft.JPG')";
         document.getElementById(place).style.transform = "rotate(270deg)";
@@ -351,19 +362,19 @@ function PlacementIndicator(place) {   // Hier wird angezeigt wo das schiff sein
       else {
         for (counter = 0; counter < AllChars.length; counter++) {
           if (AllChars[counter] === GridChar) {
-            if (NotMarked(place)){
+            if (NotMarkedBoth(place)){
               document.getElementById(place).style.backgroundImage = "url('/Images/SubLeft.JPG')";
               document.getElementById(place).style.transform = "rotate(0deg)";
             }
             counter++;
             place = GridNumber + AllChars[counter];
-            if (NotMarked(place)){
+            if (NotMarkedBoth(place)){
               document.getElementById(place).style.backgroundImage = "url('/Images/SubMid.JPG')";
               document.getElementById(place).style.transform = "rotate(0deg)";
             }
             counter++;
             place = GridNumber + AllChars[counter];
-            if (NotMarked(place)){
+            if (NotMarkedBoth(place)){
               document.getElementById(place).style.backgroundImage = "url('/Images/SubRight.JPG')";
               document.getElementById(place).style.transform = "rotate(0deg)";
             }
@@ -372,19 +383,19 @@ function PlacementIndicator(place) {   // Hier wird angezeigt wo das schiff sein
       }
     }
     else if (alignment === "v" && GridNumber <= 10) {
-      if (NotMarked(place)){
+      if (NotMarkedBoth(place)){
         document.getElementById(place).style.backgroundImage = "url('/Images/SubRight.JPG')";
         document.getElementById(place).style.transform = "rotate(270deg)";
       }
       GridNumber++;
       place = GridNumber + GridChar;
-      if (NotMarked(place)){
+      if (NotMarkedBoth(place)){
         document.getElementById(place).style.backgroundImage = "url('/Images/SubMid.JPG')";
         document.getElementById(place).style.transform = "rotate(270deg)";
       }
       GridNumber++;
       place = GridNumber + GridChar;
-      if (NotMarked(place)){
+      if (NotMarkedBoth(place)){
         document.getElementById(place).style.backgroundImage = "url('/Images/SubLeft.JPG')";
         document.getElementById(place).style.transform = "rotate(270deg)";
       }
@@ -406,25 +417,25 @@ function PlacementIndicator(place) {   // Hier wird angezeigt wo das schiff sein
       else {
         for (counter = 0; counter < AllChars.length; counter++) {
           if (AllChars[counter] === GridChar) {
-            if (NotMarked(place)){
+            if (NotMarkedBoth(place)){
               document.getElementById(place).style.backgroundImage = "url('/Images/BigShipLeftLeft.JPG')";
               document.getElementById(place).style.transform = "rotate(0deg)";
             }
             counter++;
             place = GridNumber + AllChars[counter];
-            if (NotMarked(place)){
+            if (NotMarkedBoth(place)){
               document.getElementById(place).style.backgroundImage = "url('/Images/BigShipLeft.JPG')";
               document.getElementById(place).style.transform = "rotate(0deg)";
             }
             counter++;
             place = GridNumber + AllChars[counter];
-            if (NotMarked(place)){
+            if (NotMarkedBoth(place)){
               document.getElementById(place).style.backgroundImage = "url('/Images/BigShipRight.JPG')";
               document.getElementById(place).style.transform = "rotate(0deg)";
             }
             counter++;
             place = GridNumber + AllChars[counter];
-            if (NotMarked(place)){
+            if (NotMarkedBoth(place)){
               document.getElementById(place).style.backgroundImage = "url('/Images/OBigShipRightRight.JPG')";
               document.getElementById(place).style.transform = "rotate(0deg)";
             }
@@ -433,26 +444,26 @@ function PlacementIndicator(place) {   // Hier wird angezeigt wo das schiff sein
       }
     }
     else if (alignment === "v" && GridNumber <= 9) {
-      if (NotMarked(place)){
+      if (NotMarkedBoth(place)){
         document.getElementById(place).style.backgroundImage = "url('/Images/OBigShipRightRight.JPG')";
         document.getElementById(place).style.transform = "rotate(270deg)";
       }
 
       GridNumber++;
       place = GridNumber + GridChar;
-      if (NotMarked(place)){
+      if (NotMarkedBoth(place)){
         document.getElementById(place).style.backgroundImage = "url('/Images/BigShipRight.JPG')";
         document.getElementById(place).style.transform = "rotate(270deg)";
       }
       GridNumber++;
       place = GridNumber + GridChar;
-      if (NotMarked(place)){
+      if (NotMarkedBoth(place)){
         document.getElementById(place).style.backgroundImage = "url('/Images/BigShipLeft.JPG')";
         document.getElementById(place).style.transform = "rotate(270deg)";
       }
       GridNumber++;
       place = GridNumber + GridChar;
-      if (NotMarked(place)){
+      if (NotMarkedBoth(place)){
         document.getElementById(place).style.backgroundImage = "url('/Images/BigShipLeftLeft.JPG')";
         document.getElementById(place).style.transform = "rotate(270deg)";
       }

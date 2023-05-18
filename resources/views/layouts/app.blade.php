@@ -177,13 +177,9 @@
             <button type="submit" class="LogoutButton">Log Out</button>
         </form>
     </div>
-    </div>
     <!-- in den slot ist der html code welcher sich ändert -->
     <div id="main">
         {{ $slot }}
-    </div>
-    </div>
-    </div>
     </div>
 </body>
 

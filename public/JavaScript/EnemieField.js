@@ -1,6 +1,5 @@
 function BeginGame() {
   AutoPlacementE();
-  console.log("Efield" + MediumShipsE.ship1)
   counter2 = 0;
   for (counter = 0; counter <= 4; counter++) {
     if (TinyShips.Assigned[counter2] === "n") {
@@ -44,7 +43,11 @@ function InClickedArray(place) {
   }
   return free;
 }
-function ShootAtEnemie(place) {
+function Player2Click(place) { // ShootAtEnemie
+    if(CurrentPlayer === 2){
+        TableClick(place);
+    }
+    else{
   let notMarked = true;
   let specialcounter;//copied from notmarked
   let specialcounter2;
@@ -52,7 +55,7 @@ function ShootAtEnemie(place) {
     if(auto){
       return false;
     }
-    ShowModal('DoubleSelectModal');// unsicher ob richtiges Odal zugewiesen
+    ShowModal('DoubleSelectModal');// unsicher ob richtiges Modal zugewiesen
   }
   else {
     for (specialcounter = 1; specialcounter < 5; specialcounter++) {
@@ -112,4 +115,5 @@ function ShootAtEnemie(place) {
       }
     }
   }
+}
 }

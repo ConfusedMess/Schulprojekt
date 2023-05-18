@@ -69,6 +69,7 @@ var BigShipsE = {
 
 
 var alignment = "v";// h horizontal // v vertical
+var alignment2 = "v2" // for Multiplayer
 var Buttonpressed = 0; //1=kleines Schiff 2=Mittleres Schiff 3=großes Schiff
 var counter;// für die for schleifen
 var counter2;
