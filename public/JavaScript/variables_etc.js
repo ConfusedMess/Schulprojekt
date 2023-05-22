@@ -87,3 +87,4 @@ var table;
 const clicked = [];
 var isVsBot = true; //Ob gegen Bot oder Spieler gespielt wird Std. gegen Bot
 let noOpenField;
+var EnemieShipsPlaced = false;

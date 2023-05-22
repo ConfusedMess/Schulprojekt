@@ -71,7 +71,6 @@ function AutoPlacement() {
     }
 
     RandomGenerated = false;
-
 }
 function RandomizePlace(size) {
     GridNumber = Math.floor(Math.random() * size) + 1;

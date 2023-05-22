@@ -59,7 +59,7 @@ function AutoPlacementE() {
     }
 
     RandomGenerated = false;
-
+    EnemieShipsPlaced = true;
 }
 function TableClickE(place) { // wenn man ein feld auswählt wird hier die gewählte position gespeichert und markiert
     if (Buttonpressed === 1) {
