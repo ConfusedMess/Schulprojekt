@@ -3,7 +3,7 @@ var modal;
 
 // Wenn die Funktion aufgrufen wird wird der Genannte modal Gezeigt
 function ShowModal(ID) {
-    modal = document.getElementById(`${ID}`);
+  modal = document.getElementById(`${ID}`);
   modal.style.display = "block";
 }
 
@@ -13,8 +13,17 @@ function ModalClose() {
 }
 
 // Wenn neben das Modal gedrükt wird wird der Modal Geschlossen
-window.onclick = function(event) {
+window.onclick = function (event) {
   if (event.target == modal) {
-    modal.style.display = "none";
+    switch (modal.id) {
+      case "NotAssignedModal":
+        location.href = '/ship/show';
+        break;
+      case "VictoryModal":
+        location.href = '/dashboard';
+        break;
+      default:
+        modal.style.display = "none";
+    }
   }
 }

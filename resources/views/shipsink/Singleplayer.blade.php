@@ -105,7 +105,7 @@
     <div id="VictoryModal" class="modal">
         <!-- Hier sind die Modals (Dialogfenster)-->
         <div class="modal-content">
-            <div onclick="ModalClose()" class="close">&times;</div>
+            <div onclick="location.href='/dashboard'" class="close">&times;</div>
             <div> Sieg</div>
         </div>
     </div>
@@ -129,7 +129,7 @@
             <!-- hier wird anstatt das modal zu schließen
             das fenster neu geladen um einen fehler zu vermeiden-->
             <div onclick="location.reload()" class="close">&times;</div>
-            <div>Keine Schiffe wurden Zugewiesen</div>
+            <div>Es wurden nicht Schiffe wurden Zugewiesen</div>
         </div>
     </div>
     <!-- hier werden all die JS files aus dem public ordner geladen -->
