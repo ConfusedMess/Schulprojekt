@@ -8,7 +8,7 @@
 
 #ButtonBox{
     border-radius: 16px;
-    background: linear-gradient(to left, rgb(126, 119, 93), rgb(80, 75, 61), rgb(47, 45, 33));
+    /*background: linear-gradient(to left, rgb(126, 119, 93), rgb(80, 75, 61), rgb(47, 45, 33));*/
     padding: 20px;
     margin-top: 10px;
     margin-bottom: 10px;
@@ -76,7 +76,8 @@
 
 }
 label {
-    color: blue;
+    /*color: blue;*/
+    color: #fff;
 }
 #TinyShipButton {
     margin-left: 100px;
@@ -173,8 +174,9 @@ td {
     align-items: baseline;
     border-radius: 16px;
     /*background: url('@/ressources/Images/TemporaryBackground.png');*/
-    background: linear-gradient(to left, rgb(126, 119, 93), rgb(80, 75, 61), rgb(47, 45, 33));
-    padding: 20px;
+    /*background: linear-gradient(to left, rgb(126, 119, 93), rgb(80, 75, 61), rgb(47, 45, 33));*/
+    color: white;
+    padding: 30px;
     margin-top: 10px;
     margin-bottom: 100px;
     text-align: center;
@@ -184,7 +186,8 @@ td {
     flex: auto;
     align-items: baseline;
     border-radius: 16px;
-    background: linear-gradient(to left, rgb(126, 119, 93), rgb(80, 75, 61), rgb(47, 45, 33));
+    /*background: linear-gradient(to left, rgb(126, 119, 93), rgb(80, 75, 61), rgb(47, 45, 33));*/
+    color: white;
     padding: 30px;
     margin-top: 10px;
     margin-bottom: 100px;
@@ -203,6 +206,19 @@ td {
     opacity: 0.5;
     background-size: cover;
     background-position: center;
+}
+#AutoShootButton{
+    float: right;
+    padding: 15px 25px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: blue;
+    border: none;
+    border-radius: 16px;
+    box-shadow: 0 9px #999;
 }
 @media screen and (max-width: 1200px) {
     .shipbutton{

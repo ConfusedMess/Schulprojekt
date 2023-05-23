@@ -29,6 +29,7 @@ function BeginGame() {
     else {
       document.getElementById("ButtonBox").style.visibility = "hidden";
       document.getElementById("EnemieTable").style.visibility = "visible";
+      document.getElementById("Shipbox1").style.float = "left";
     }
 
   }
