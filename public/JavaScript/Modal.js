@@ -16,7 +16,7 @@ window.onclick = function (event) {
         location.href = '/ship/show';
         break;
       case "VictoryModal":
-        location.href = '/dashboard';
+        location.href = '/';
         break;
       default:
         modal.style.display = "none";
