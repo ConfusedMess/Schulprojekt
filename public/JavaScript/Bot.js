@@ -420,14 +420,19 @@ function IsShipDestroyed(ship){ // Abfrage ob Schiff zerstört wurde
 //Bots
 function BotEasy(){ //kann nur Zufälligen nicht wiederholten Schuss und aktiviert PlayerChange()
     let shot = Shot()
+    let translatedShot = translateAtoS(shot);
     feld[shot[1]][shot[0]] = -20
-    if(NotMarked(translateAtoS(shot))){    //Daneben
+    if(NotMarked(translatedShot)){    //Daneben
         feld[shot[1]][shot[0]] = -20
+        document.getElementById("botlog").value += "Bot verfehlt: " + translatedShot + "\r\n";
+        document.getElementById("botlog").scrollTop = document.getElementById("botlog").scrollHeight 
         PlayerChange();
         return shot
     } else {                //Getroffen
-        let a = TestForShip(BotMove());
+        document.getElementById("botlog").value += "Bot trifft: " + translatedShot + "\r\n";
+        document.getElementById("botlog").scrollTop = document.getElementById("botlog").scrollHeight 
         feld[shot[1]][shot[0]] = -20
+        TestForShip(BotMove());
         return shot
     }
 }
