@@ -8,12 +8,15 @@
 
 #ButtonBox{
     border-radius: 16px;
-    /*background: linear-gradient(to left, rgb(126, 119, 93), rgb(80, 75, 61), rgb(47, 45, 33));*/
+    background-color: #fdb813;
+/*background-image: linear-gradient(315deg, #fdb813 0%, #788cb6 74%);*/
+
     padding: 20px;
-    margin-top: 10px;
     margin-bottom: 10px;
     visibility: visible;
     text-align: center;
+    background-color: #63a4ff;
+    background-image: linear-gradient(315deg, #63a4ff 0%, #83eaf1 74%);
 }
 #ButtonBox > button{
     display: inline-block;
@@ -52,39 +55,16 @@
 #ButtonBox > select > option{
     background-color: blue;
 }
-#EnemieTable > button{
-    display: inline-block;
-    padding: 15px 25px;
-    cursor: pointer;
-    text-align: center;
-    text-decoration: none;
-    outline: none;
-    color: #fff;
-    background-color: blue;
-    border: none;
-    border-radius: 16px;
-    box-shadow: 0 9px #999;
-}
-#EnemieTable > button:hover{
-    background-color: darkblue;
-    border-radius: 16px;
-}
-#EnemieTable > button:active{
-    background-color: darkblue;
-    box-shadow: 0 5px #666;
-    transform: translateY(4px);
-
-}
 label {
-    /*color: blue;*/
-    color: #fff;
+
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
 }
 #TinyShipButton {
     margin-left: 100px;
 }
 .dropdown{
-
-        position: relative;
         display: inline-block;
 }
 .dropdownbtn {
@@ -149,8 +129,8 @@ table {
     border-color: darkblue;
     border-style: outset;
     border-width: 2px;
-    width: 70px;
-    height: 70px;
+    width: 60px;
+    height: 60px;
     font-size: 20px;
     text-align: center;
     border-bottom-width: 3.5px;
@@ -163,8 +143,8 @@ td {
     margin: 0px;
 }
 .NumberInTable {
-    width: 70px;
-    height: 70px;
+    width: 60px;
+    height: 60px;
     font-size: 20px;
     text-align: center;
     border-right-width: 3.5px;
@@ -173,25 +153,26 @@ td {
     flex: auto;
     align-items: baseline;
     border-radius: 16px;
-    /*background: url('@/ressources/Images/TemporaryBackground.png');*/
-    /*background: linear-gradient(to left, rgb(126, 119, 93), rgb(80, 75, 61), rgb(47, 45, 33));*/
-    color: white;
-    padding: 30px;
+    padding: 20px;
+
+
     margin-top: 10px;
     margin-bottom: 100px;
     text-align: center;
+    background-color: #63a4ff;
+    background-image: linear-gradient(315deg, #63a4ff 0%, #83eaf1 74%);
 }
 #EnemieTable{
     text-align: center;
     flex: auto;
     align-items: baseline;
     border-radius: 16px;
-    /*background: linear-gradient(to left, rgb(126, 119, 93), rgb(80, 75, 61), rgb(47, 45, 33));*/
-    color: white;
     padding: 30px;
     margin-top: 10px;
     margin-bottom: 100px;
     visibility: hidden;
+    background-color: #63a4ff;
+    background-image: linear-gradient(315deg, #63a4ff 0%, #83eaf1 74%);
 }
 
 .shipbutton {
@@ -200,8 +181,8 @@ td {
     background-color: #00000000;
     padding: 5px;
     margin: 0px;
-    width: 70px;
-    height: 70px;
+    width: 60px;
+    height: 60px;
     font-size: 0px;
     opacity: 0.5;
     background-size: cover;

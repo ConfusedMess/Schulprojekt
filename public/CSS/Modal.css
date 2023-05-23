@@ -1,27 +1,36 @@
 .modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  padding-top: 100px; /* Location of the box */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-  font-size: 24px;
-  color: white;
+  display: none; /* Normalerweise unsichtbar */
+  position: fixed; /* Bleibt an einem ort */
+  z-index: 1; /* Sitz auf rest der seite */
+  padding-top: 100px;
+  top: 0px; /*positionierung 0 wegen hintergrund*/
+  bottom: 0;
+  width: 100%; /*  breite u. höhe */
+  height: 100%;
+  overflow: auto; /* Wenn Inhalt größer als Modal ist wird eine scrollbar hinzugefügt */
+  background-color: rgba(0,0,0,0.4); /*Hintergrund Schwarz mit Transparenz */
+  font-size: 24px; /*Schriftgröße*/
+
 }
+.modal-content { /*Inhalt der Modal*/
+  background: linear-gradient(to left, rgb(132, 157, 211),
+   rgb(51, 87, 185), rgb(7, 4, 190));/* Farbverlauf von Hintergrund*/
+  margin: auto;  /*Inhalt mittig*/
+  padding: 20px; /*abstand zum rand*/
+  border-radius: 16px; /*gerundete ränder*/
+  width: 40%;
 
-/* Modal Content */
-.modal-content {
-  background: linear-gradient(to left, rgb(132, 157, 211), rgb(51, 87, 185), rgb(7, 4, 190));
-  margin: auto;
-  padding: 20px;
-  border-radius: 16px;
-  width: 80%;
-
+}
+.close { /*Design vom roten X*/
+  color: red; /* rote schrift*/
+  float: right; /* rechts platziert*/
+  font-size: 32px;
+  font-weight:bolder; /*Dicke schrift*/
+}
+.close:hover,
+.close:focus { /*wenn mauszeiger über dem X*/
+  color: #000;
+  cursor: pointer; /* maus wird zu zeiger/"hand"*/
 }
 .PlayerswitchModal {
   display: none; /* Hidden by default */
@@ -38,17 +47,11 @@
   font-size: 24px;
 }
 
+
 /* The Close Button */
 .close {
   color: red;
   float: right;
   font-size: 32px;
   font-weight:bolder;
-}
-
-.close:hover,
-.close:focus {
-  color: #000;
-  text-decoration: none;
-  cursor: pointer;
 }

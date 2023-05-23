@@ -50,5 +50,7 @@ function CreateTable(Size) {
 
         CreateTableHeader(Size, y);
     }
+    //for Menubutton
+    document.getElementById("MenuButton").style.visibility = "visible";
 }
 CreateTable(12);
