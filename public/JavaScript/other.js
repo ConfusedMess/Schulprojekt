@@ -12,12 +12,17 @@ function PlayerChange() { // hier wird der spieler geändert
 function TestForShip(place) { // hier wird geschuat ob das attackierte feld ein schiff besitz und falls ja wird die nummer der felder mit aktiven schiffen reduziert
   if (NotMarked(place)) {
     document.getElementById(place).style.backgroundColor = "red";
+    document.getElementById("botlog").value += "Bot verfehlt: " + place + "\r\n";
+    document.getElementById("botlog").scrollTop = document.getElementById("botlog").scrollHeight 
   }
   else {
     document.getElementById(place).innerHTML="<img class='fire' src='/Images/Fire.gif' alt='Hit'>";
+    document.getElementById("botlog").value += "Bot trifft: " + place + "\r\n";
+    document.getElementById("botlog").scrollTop = document.getElementById("botlog").scrollHeight 
     ShipfieldsNumber--;
     if (ShipfieldsNumber === 0) {
       ShowModal('LossModal');
+      document.getElementById("botlog").value += "Bot gewinnt!\r\n";
     }
   }
 }
