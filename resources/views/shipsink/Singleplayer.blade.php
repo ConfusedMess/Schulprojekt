@@ -30,29 +30,28 @@
         </div>
         <button id="BeginGame" onclick="BeginGame()">Begin Game</button>
     </div>
-<!--
+    <!--
     <div class="ShipBox">
-        <!--Das Eigenefeld(Player 1) und die Box in der das Feld ist-->
+        <!--Das Eigenefeld(Player 1) und die Box in der das Feld ist
         <h2>Dein Feld </h2>
         <table id="table1">
         </table>
     </div>
     <div id="EnemieTable">
-        <!--Das Gegnerfeld(Player 2/Bot) und die Box in der das Feld ist-->
+        <!--Das Gegnerfeld(Player 2/Bot) und die Box in der das Feld ist
         <h2 id="EtableH">Gegner Feld</h2>
         <table id="table2">
-        </table>--->
+        </table>-->
 
     <div>
-        <div style="float: center" id="Shipbox1" class="ShipBox">
+        <div id="Shipbox1" class="ShipBox">
             <!--Das Eigenefeld(Player 1) und die Box in der das Feld ist-->
             <h2>Dein Feld</h2>
             <table id="table1">
             </table>
         </div>
-        <div style="float: left" id="EnemieTable">
+        <div id="EnemieTable">
             <!--Das Gegnerfeld(Player 2/Bot) und die Box in der das Feld ist-->
-            <button id="AutoShootButton" onclick="AutoShoot()">Autoshoot</button>
             <h2 id="EtableH">Gegner Feld</h2>
             <table id="table2">
             </table>
