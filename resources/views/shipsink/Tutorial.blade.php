@@ -15,7 +15,6 @@
             Daraufhin startet das spiel man kannn durch klicken auf das gegnerische feld manuell Schießen oder durch das
             Drücken von Autoshoot Automatisch Schießen
         </p>
-        <img src="/Images/Bildschirmfoto 2023-05-23 um 11.39.03.png" style="scale:0.2; margin: auto;">
     </div>
     <script>
         document.getElementById("MenuButton").style.visibility = "visible";
