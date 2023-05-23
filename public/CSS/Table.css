@@ -8,12 +8,15 @@
 
 #ButtonBox{
     border-radius: 16px;
-    background: linear-gradient(to left, rgb(126, 119, 93), rgb(80, 75, 61), rgb(47, 45, 33));
+    background-color: #fdb813;
+/*background-image: linear-gradient(315deg, #fdb813 0%, #788cb6 74%);*/
     padding: 20px;
     margin-top: 10px;
     margin-bottom: 10px;
     visibility: visible;
     text-align: center;
+    background-color: #63a4ff;
+    background-image: linear-gradient(315deg, #63a4ff 0%, #83eaf1 74%);
 }
 #ButtonBox > button{
     display: inline-block;
@@ -172,23 +175,24 @@ td {
     flex: auto;
     align-items: baseline;
     border-radius: 16px;
-    /*background: url('@/ressources/Images/TemporaryBackground.png');*/
-    background: linear-gradient(to left, rgb(126, 119, 93), rgb(80, 75, 61), rgb(47, 45, 33));
     padding: 20px;
     margin-top: 10px;
     margin-bottom: 100px;
     text-align: center;
+    background-color: #63a4ff;
+    background-image: linear-gradient(315deg, #63a4ff 0%, #83eaf1 74%);
 }
 #EnemieTable{
     text-align: center;
     flex: auto;
     align-items: baseline;
     border-radius: 16px;
-    background: linear-gradient(to left, rgb(126, 119, 93), rgb(80, 75, 61), rgb(47, 45, 33));
     padding: 30px;
     margin-top: 10px;
     margin-bottom: 100px;
     visibility: hidden;
+    background-color: #63a4ff;
+    background-image: linear-gradient(315deg, #63a4ff 0%, #83eaf1 74%);
 }
 
 .shipbutton {

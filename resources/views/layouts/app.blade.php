@@ -13,7 +13,8 @@
             font-family: Arial;
             font-size: 15px;
             padding: 0px;
-            background-color: #212121;
+            background-color: #000000;
+            background-image: linear-gradient(147deg, #000000 0%, #04619f 74%);
             margin: 0px;
 
         }
@@ -101,17 +102,12 @@
     <script>
         function SiteSetup() { //mehrere funktionen werden hier zur ausführung beim laden gesammelt
             SetHeight();
-            BackgroundLoad()
         }
 
         function SetHeight() { // ermittelt die hhöhe und breite des fesnter und passt die größe der seite an
             let hohe = window.innerHeight;
             document.getElementById("main").style.height = hohe * 0.95 + "px";
             document.getElementById("Header").style.height = hohe * 0.05 + "px";
-        }
-
-        function BackgroundLoad() { //fügt das hintergrundbild ein
-            document.body.style.backgroundImage = "url('/Images/TemporaryBackground.png')";
         }
     </script>
 </head>
