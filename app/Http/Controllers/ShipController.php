@@ -10,6 +10,10 @@ class ShipController extends Controller
     {
         return view("shipsink/Singleplayer");
     }
+    public function showTutorial()
+    {
+        return view("shipsink/Tutorial");
+    }
 // public function show()
 //{
 //    return view("shipsink/show");

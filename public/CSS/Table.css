@@ -55,29 +55,6 @@
 #ButtonBox > select > option{
     background-color: blue;
 }
-#EnemieTable > button{
-    display: inline-block;
-    padding: 15px 25px;
-    cursor: pointer;
-    text-align: center;
-    text-decoration: none;
-    outline: none;
-    color: #fff;
-    background-color: blue;
-    border: none;
-    border-radius: 16px;
-    box-shadow: 0 9px #999;
-}
-#EnemieTable > button:hover{
-    background-color: darkblue;
-    border-radius: 16px;
-}
-#EnemieTable > button:active{
-    background-color: darkblue;
-    box-shadow: 0 5px #666;
-    transform: translateY(4px);
-
-}
 label {
     color: blue;
 }
@@ -85,8 +62,6 @@ label {
     margin-left: 100px;
 }
 .dropdown{
-
-        position: relative;
         display: inline-block;
 }
 .dropdownbtn {
