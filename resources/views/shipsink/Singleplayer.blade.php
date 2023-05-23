@@ -30,6 +30,7 @@
         </div>
         <button id="BeginGame" onclick="BeginGame()">Begin Game</button>
     </div>
+<!--
     <div class="ShipBox">
         <!--Das Eigenefeld(Player 1) und die Box in der das Feld ist-->
         <h2>Dein Feld </h2>
@@ -40,7 +41,26 @@
         <!--Das Gegnerfeld(Player 2/Bot) und die Box in der das Feld ist-->
         <h2 id="EtableH">Gegner Feld</h2>
         <table id="table2">
-        </table>
+        </table>--->
+
+    <div>
+        <div style="float: center" id="Shipbox1" class="ShipBox">
+            <!--Das Eigenefeld(Player 1) und die Box in der das Feld ist-->
+            <h2>Dein Feld</h2>
+            <table id="table1">
+            </table>
+        </div>
+        <div style="float: left" id="EnemieTable">
+            <!--Das Gegnerfeld(Player 2/Bot) und die Box in der das Feld ist-->
+            <button id="AutoShootButton" onclick="AutoShoot()">Autoshoot</button>
+            <h2 id="EtableH">Gegner Feld</h2>
+            <table id="table2">
+            </table>
+        </div>
+        <div>
+            <label style="display: none" id="labelbotlog" for="botlog">Züge des Bots:</label>
+            <textarea id="botlog" name="botlog" rows="50" cols="50" readonly></textarea>
+        </div>
     </div>
     <div id="FehlerModal" class="modal">
         <!-- Hier sind die Modals (Dialogfenster)-->
@@ -54,7 +74,7 @@
         <div class="modal-content">
             <div onclick="ModalClose()" class="close">&times;</div>
             <div> Du kannst hier kein Schiff setzen
-                oder alle Schiffe dieser art wurden schon zugewiesen.
+                oder alle Schiffe dieser Art wurden schon zugewiesen.
             </div>
         </div>
     </div>
@@ -62,7 +82,7 @@
         <!-- Hier sind die Modals (Dialogfenster)-->
         <div class="modal-content">
             <div onclick="ModalClose()" class="close">&times;</div>
-            <div>Du hast schon Alle Schiffe dieser art gesetzt</div>
+            <div>Du hast schon alle Schiffe dieser Art gesetzt</div>
         </div>
     </div>
     <div id="DoubleSelectModal" class="modal">
@@ -84,7 +104,7 @@
         <!-- Hier sind die Modals (Dialogfenster)-->
         <div class="modal-content">
             <div onclick="ModalClose()" class="close">&times;</div>
-            <div> Du hast ein schiff Zerstört</div>
+            <div> Du hast ein Schiff Zerstört</div>
         </div>
     </div>
     </div>
@@ -92,21 +112,21 @@
         <!-- Hier sind die Modals (Dialogfenster)-->
         <div class="modal-content">
             <div onclick="location.href='/dashboard'" class="close">&times;</div>
-            <div> Sieg</div>
+            <div> Sieg!</div>
         </div>
     </div>
     <div id="LossModal" class="modal">
         <!-- Hier sind die Modals (Dialogfenster)-->
         <div class="modal-content">
             <div onclick="ModalClose()" class="close">&times;</div>
-            <div>Niederlage</div>
+            <div>Niederlage!</div>
         </div>
     </div>
     <div id="NoDifficultyModal" class="modal">
         <!-- Hier sind die Modals (Dialogfenster)-->
         <div class="modal-content">
             <div onclick="ModalClose()" class="close">&times;</div>
-            <div>Bitte wähle eine schwierigkeit</div>
+            <div>Bitte wähle eine Schwierigkeit</div>
         </div>
     </div>
     <div id="NotAssignedModal" class="modal">
@@ -115,7 +135,7 @@
             <!-- hier wird anstatt das modal zu schließen
             das fenster neu geladen um einen fehler zu vermeiden-->
             <div onclick="location.reload()" class="close">&times;</div>
-            <div>Es wurden nicht Schiffe wurden Zugewiesen</div>
+            <div>Es wurden manche Schiffe noch nicht zugewiesen</div>
         </div>
     </div>
     <!-- hier werden all die JS files aus dem public ordner geladen -->

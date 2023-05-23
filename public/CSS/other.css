@@ -9,3 +9,11 @@ option{
     font-size: 15px;
     visibility: hidden;
 }
+#botlog{
+    width: 200px;
+    height: 200px;
+    white-space: pre-wrap;
+    color: white;
+    background: transparent;
+    visibility: hidden;
+}

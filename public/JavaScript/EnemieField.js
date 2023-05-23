@@ -1,4 +1,6 @@
 function BeginGame() {
+  document.getElementById("botlog").value = ""
+  
   if (EnemieShipsPlaced === false){
     AutoPlacementE();
   }
@@ -30,6 +32,9 @@ function BeginGame() {
       document.getElementById("ButtonBox").style.visibility = "hidden";
       document.getElementById("EnemieTable").style.visibility = "visible";
       document.getElementById("AutoshootButton").style.visibility = "visible";
+      document.getElementById("Shipbox1").style.float = "left";
+      document.getElementById("botlog").style.visibility = "visible";
+      document.getElementById("labelbotlog").style.display = "block";
     }
 
   }

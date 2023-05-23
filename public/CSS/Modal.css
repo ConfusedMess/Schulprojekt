@@ -10,6 +10,7 @@
   overflow: auto; /* Wenn Inhalt größer als Modal ist wird eine scrollbar hinzugefügt */
   background-color: rgba(0,0,0,0.4); /*Hintergrund Schwarz mit Transparenz */
   font-size: 24px; /*Schriftgröße*/
+
 }
 .modal-content { /*Inhalt der Modal*/
   background: linear-gradient(to left, rgb(132, 157, 211),
@@ -46,3 +47,11 @@
   font-size: 24px;
 }
 
+
+/* The Close Button */
+.close {
+  color: red;
+  float: right;
+  font-size: 32px;
+  font-weight:bolder;
+}

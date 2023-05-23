@@ -18,6 +18,8 @@ function TestForShip(place) { // hier wird geschuat ob das attackierte feld ein 
     ShipfieldsNumber--;
     if (ShipfieldsNumber === 0) {
       ShowModal('LossModal');
+      document.getElementById("botlog").value += "Bot gewinnt!\r\n";
+      document.getElementById("botlog").scrollTop = document.getElementById("botlog").scrollHeight 
     }
   }
 }

@@ -23,13 +23,13 @@ let tinyShipsA = {
     ship4: [0, false, false],
 }
 
-let smallShipsA = { // hier wird die shiffsposition gespeichert jedes shiff ist ein objekt (also ship1,ship2,ship3) die anzahl der objekt (also schiffe) hängt von der anzahl der platzierbaren schiffe ab.
-    ship1: [0, 0, false, false, false],// Jedes Objekt ist ein array die länge der arrays hängt von der größe des schiffs ab
+let smallShipsA = { // hier wird die Schiffsposition gespeichert. Jedes Schiff ist ein Objekt (also ship1,ship2,ship3) die Anzahl der Objekte (also Schiffe) hängt von der Anzahl der platzierbaren Schiffe ab.
+    ship1: [0, 0, false, false, false],// Jedes Objekt ist ein Array. Die Länge der Arrays hängt von der Größe des Schiffs ab
     ship2: [0, 0, false, false, false],
     ship3: [0, 0, false, false, false],
 };
 
-let mediumShipsA = { // selbe wie bei SmallShips nur weniger Objekte(weniger schiffe) und dafür längeres array(größere schiffe)
+let mediumShipsA = { // selbe wie bei SmallShips nur weniger Objekte (weniger Schiffe) und dafür längeres Array (größere Schiffe)
     ship1: [0, 0, 0, false, false, false, false],
     ship2: [0, 0, 0, false, false, false, false],
 };
@@ -39,7 +39,7 @@ let bigShipsA = {
 
 
 
-let difficulty = 0; //1 = Easy 2 = Medium 3 = Hard // Auf 0 gesetzt damit keine Schiwerigkeit voreingestellt ist und deer user eine auswählen muss
+let difficulty = 0; //1 = Easy; 2 = Medium; 3 = Hard; Auf 0 gesetzt damit keine Schwierigkeit voreingestellt ist und der User eine auswählen muss
 function SetDifficulty(value){ //Button nutz diese function um difficulty festzulegen 
     difficulty=value
     switch(difficulty){
@@ -54,7 +54,7 @@ function SetDifficulty(value){ //Button nutz diese function um difficulty festzu
             break;
     }
 }
-function DifficultyAssigend(){ // Macht wie der name sagt schauen ob eine Schwierigkeit gewählt wurde
+function DifficultyAssigend(){ // Macht wie der Name sagt schauen ob eine Schwierigkeit gewählt wurde
     if(difficulty === 0 ){ 
         return false;
     }
@@ -71,7 +71,7 @@ function Initalise(){ //Einmal bei Spielbegin ausführen
             InitialiseBot()
     }
     else{
-        return "error"// gibt  fehler zurück wenn keine schwierigkeit ausgewählt
+        return "error"// gibt Fehler zurück, wenn keine Schwierigkeit ausgewählt ist
     }
 
 }
@@ -134,7 +134,7 @@ function InitialiseBot(){  //Nur Hard Bot. Alle Felder werden auf -10 gesetzt au
     }
 }
 
-function FieldHardPrepare(shot){ //verändert Feld alles was um ein Schiff liegt wird = 0
+function FieldHardPrepare(shot){ //verändert Feld, alles was um ein Schiff liegt wird = 0
     feld[shot[1]][shot[0]] = 0
     if((shot[1]-1)> -1 && (shot[0]-1)> -1){ //links oben
         feld[shot[1]-1][shot[0]-1] = 0
@@ -432,15 +432,20 @@ function BotEasy(){ //kann nur Zufälligen nicht wiederholten Schuss und aktivie
     }
 }
 
-function BotMedium(){       //Gibt eine Schuss Position zurück und aktiviert PlayerChange()
+function BotMedium(){ //Gibt eine Schuss Position zurück und aktiviert PlayerChange()
     let shot = Shot();
-    if(NotMarked(translateAtoS(shot))){    //Daneben
+    let translatedShot = translateAtoS(shot);
+    if(NotMarked(translatedShot)){    //Daneben
         feld[shot[1]][shot[0]] = -20
+        document.getElementById("botlog").value += "Bot verfehlt: " + translatedShot + "\r\n";
+        document.getElementById("botlog").scrollTop = document.getElementById("botlog").scrollHeight 
         PlayerChange();
         return shot
     } else {                //Getroffen
         ChangeField(shot);
         DestroyShips(shot);
+        document.getElementById("botlog").value += "Bot trifft: " + translatedShot + "\r\n";
+        document.getElementById("botlog").scrollTop = document.getElementById("botlog").scrollHeight 
         noOpenField=true;
         for (let h = 0; h < 12; h++){
             for (let l = 0; l < 12; l++){
