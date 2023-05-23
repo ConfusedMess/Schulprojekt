@@ -3,7 +3,7 @@
 <!-- dies ist das haupt layout was für jede seite gleich bleibt  -->
 
 <head>
-    <title>Schiffe Versenken</title>
+    <title>Schiffe versenken</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/CSS/app.css">

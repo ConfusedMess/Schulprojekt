@@ -11,7 +11,6 @@
     background-color: #fdb813;
 /*background-image: linear-gradient(315deg, #fdb813 0%, #788cb6 74%);*/
     padding: 20px;
-    margin-top: 10px;
     margin-bottom: 10px;
     visibility: visible;
     text-align: center;
@@ -56,7 +55,9 @@
     background-color: blue;
 }
 label {
-    color: blue;
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
 }
 #TinyShipButton {
     margin-left: 100px;
@@ -126,8 +127,8 @@ table {
     border-color: darkblue;
     border-style: outset;
     border-width: 2px;
-    width: 70px;
-    height: 70px;
+    width: 60px;
+    height: 60px;
     font-size: 20px;
     text-align: center;
     border-bottom-width: 3.5px;
@@ -140,8 +141,8 @@ td {
     margin: 0px;
 }
 .NumberInTable {
-    width: 70px;
-    height: 70px;
+    width: 60px;
+    height: 60px;
     font-size: 20px;
     text-align: center;
     border-right-width: 3.5px;
@@ -176,8 +177,8 @@ td {
     background-color: #00000000;
     padding: 5px;
     margin: 0px;
-    width: 70px;
-    height: 70px;
+    width: 60px;
+    height: 60px;
     font-size: 0px;
     opacity: 0.5;
     background-size: cover;

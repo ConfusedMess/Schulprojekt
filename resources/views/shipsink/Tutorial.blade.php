@@ -8,7 +8,7 @@
             einfache Version nicht unbedingt als strategisch relevant bezeichnen kann.
             <sup><a href="https://de.wikipedia.org/wiki/Schiffe_versenken">Wikipedia</a></sup>
         </p>
-        <h2>Speilablauf</h2>
+        <h2>Spielablauf</h2>
         <p> Es wird 1vs 1 gespielt zu beginn müssen ide eigenen schiffe platziert werden. Dies kann Manuell oder
             automatisch gemacht werden.<br>
             Danach muss eine Schwierigkeit ausgewählt werden.<br>

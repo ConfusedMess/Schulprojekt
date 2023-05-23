@@ -8,6 +8,9 @@
             background-size: cover;
             margin: 0px;
         }
+        p{
+            font-size: 20px;
+        }
         #main{
             padding-top: 100px;
             padding-left: 20px;
@@ -83,7 +86,8 @@
             position:fixed;
             top: 0;
             width: 100%;
-            z-index: 2;  
+            z-index: 2;
+            padding-bottom: 20px;
         }
         #AutoshootButton{
             margin-top: 10px;
@@ -108,7 +112,7 @@
             background-color: darkblue;
             box-shadow: 0 5px #666;
             transform: translateY(4px);
-        
+
         }
 
         table {
@@ -142,7 +146,7 @@
             background-color: darkblue;
             box-shadow: 0 5px #666;
             transform: translateY(4px);
-        
+
         }
         .MoreRight{
             visibility: hidden;
